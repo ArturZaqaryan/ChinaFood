@@ -1,25 +1,12 @@
-using ChinaFood.Domain.Entities;
 using ChinaFood.Domain;
-using HotBooking.Domain;
-using HotBooking.Domain.Entities;
-using HotBooking.Domain.Repositories.Abstract;
-using HotBooking.Domain.Repositories.EntityFramwork;
+using ChinaFood.Domain.Entities;
+using ChinaFood.Service;
 using HotBooking.Service;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace HotBooking
+namespace ChinaFood
 {
     public class Startup
     {
