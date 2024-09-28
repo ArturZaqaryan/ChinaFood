@@ -1,8 +1,225 @@
-﻿@{
+﻿@using ChinaFood.Domain.Entities
+@{
     ViewData["Title"] = "Home Page";
 }
+@{
+    List<DishModel> favoriteDishes = new();
+    favoriteDishes.Add(new DishModel
+    {
+        Title = "asdfgsfhg"
+    });
+    favoriteDishes.Add(new DishModel
+    {
+        Title = "asdfgsfhg"
+    });
+    favoriteDishes.Add(new DishModel
+    {
+        Title = "asdfgsfhg"
+    });
+    favoriteDishes.Add(new DishModel
+    {
+        Title = "asdfgsfhg"
+    });
+    favoriteDishes.Add(new DishModel
+    {
+        Title = "asdfgsfhg"
+    });
+    favoriteDishes.Add(new DishModel
+    {
+        Title = "asdfgsfhg"
+    });
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    var salads = new List<DishModel>();
+    var hotDishes = new List<DishModel>();
+    hotDishes.AddRange(favoriteDishes);
+}
+<body>
+    <div class="content">
+        <div class="container">
+            <div class="content__column">
+                <article class="article">
+                    <div class="article__title title">
+                        <h3>HotBooking title</h3>
+                    </div>
+                    <div class="article__subtitle">
+                        <img src="~/images/bookingImage.jpg" alt="">
+                        <p>HotBooking desc</p>
+                    </div>
+                </article>
+
+                <article class="article article_cream">
+                    <div class="article__row">
+                        <div class="article__text-block article__text-block_piggy">
+                            <div class="article__title_2 title_2">
+                                <p>Low prices</p>
+                            </div>
+                            <div class="text-block__description">
+                                <p>Low prices desc</p>
+                            </div>
+                        </div>
+                        <div class="article__text-block article__text-block_key">
+                            <div class="article__title_2 title_2">
+                                <p>Hotels Worldwide</p>
+                            </div>
+                            <div class="text-block__description">
+                                <p>Hotels Worldwide desc</p>
+                            </div>
+                        </div>
+                        <div class="article__text-block article__text-block_bars">
+                            <div class="article__title_2 title_2">
+                                <p>Flexible payment options</p>
+                            </div>
+                            <div class="text-block__description">
+                                <p>Flexible payment options desc</p>
+                            </div>
+                        </div>
+                        <div class="article__text-block article__text-block_phone">
+                            <div class="article__title_2 title_2">
+                                <p>24/7 Dedicated Customer Care Team</p>
+                            </div>
+                            <div class="text-block__description">
+                                <p>24/7 Dedicated Customer Care Team desc</p>
+                            </div>
+                        </div>
+                        <div class="article__text-block article__text-block_message">
+                            <div class="article__title_2 title_2">
+                                <p>Reliable Reviews</p>
+                            </div>
+                            <div class="text-block__description">
+                                <p>Reliable Reviews desc</p>
+                            </div>
+                        </div>
+                        <div class="article__text-block article__text-block_mobile">
+                            <div class="article__title_2 title_2">
+                                <p>Free App</p>
+                            </div>
+                            <div class="description">
+                                <p>Free App desc</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article__logo logo logo_centered">
+                        <a href="" class="logo__link">HotBooking</a>
+                    </div>
+                </article>
+
+                <article class="article">
+                    <div class="article__title title">
+                        <h3>Favorite cities</h3>
+                    </div>
+                    <div class="article__row">
+                        @for (int i = 0; i < 6; i++)
+                        {
+                            if (i == 0 || i == 5)
+                            {
+                                @await Html.PartialAsync("CardWithFormBigPartial", favoriteDishes[i])
+                                ;
+                            }
+                            else
+                            {
+                                @await Html.PartialAsync("CardWithFormPartial", favoriteDishes[i])
+                                ;
+                            }
+                        }
+                    </div>
+                </article>
+
+                <article class="article">
+                    <div class="article__title title">
+                        <h3>Learn more</h3>
+                    </div>
+                    <div id="js-carousel-polaroid-5" class="article__row article__row_polaroid owl-carousel polaroid-carousel_5">
+                        @foreach (var country in salads)
+                        {
+                            @await Html.PartialAsync("PolaroidPartial", country)
+                            ;
+                        }
+                    </div>
+                    <div id="js-carousel-polaroid-4" class="article__row article__row_polaroid owl-carousel polaroid-carousel_4">
+                        @foreach (var country in salads)
+                        {
+                            @await Html.PartialAsync("PolaroidPartial", country)
+                            ;
+                        }
+                    </div>
+                    <div id="js-carousel-polaroid-3" class="article__row article__row_polaroid owl-carousel polaroid-carousel_3">
+                        @foreach (var country in salads)
+                        {
+                            @await Html.PartialAsync("PolaroidPartial", country)
+                            ;
+                        }
+                    </div>
+                    <div id="js-carousel-polaroid-2" class="article__row article__row_polaroid owl-carousel polaroid-carousel_2">
+                        @foreach (var country in salads)
+                        {
+                            @await Html.PartialAsync("PolaroidPartial", country)
+                            ;
+                        }
+                    </div>
+                    <div id="js-carousel-polaroid-1" class="article__row article__row_polaroid owl-carousel polaroid-carousel_1">
+                        @foreach (var country in salads)
+                        {
+                            @await Html.PartialAsync("PolaroidPartial", country)
+                            ;
+                        }
+                    </div>
+                </article>
+
+                <article class="article">
+                    <div class="article__title title">
+                        <h3>Explore Armenia</h3>
+                    </div>
+                    <div class="article__row">
+                        @for (int i = 0; i < 6; i++)
+                        {
+                            if (i == 2 || i == 3)
+                            {
+                                @await Html.PartialAsync("CardWithFormBigPartial", hotDishes[i])
+                                ;
+                            }
+                            else
+                            {
+                                @await Html.PartialAsync("CardWithFormPartial", hotDishes[i])
+                                ;
+                            }
+                        }
+                    </div>
+                </article>
+
+                <article class="article">
+                    <div class="article__title title">
+                        <h3>Latest reviews</h3>
+                    </div>
+                    @* <div id="js-carousel-review" class="article__review review owl-carousel">
+                        @foreach (var review in Model.Reviews.GetAll())
+                        {
+                            <div class="review__inner">
+                                @{
+                                    string path;
+                                    User currUser = Model.UserManager.FindByIdAsync(review.UserId.ToString()).Result;
+                                    if (currUser.Avatar != null && currUser.Avatar != "")
+                                    {
+                                        path = currUser.Avatar;
+                                    }
+                                    else
+                                    {
+                                        path = "images/icons/maleIcon.jpg";
+                                    }
+                                }
+                                <img src="@path" alt="" class="review__avatar">
+                                <div class="review__comment">
+                                    <div class="title_2">
+                                        <p>@currUser.UserName</p>
+                                    </div>
+                                    <div>
+                                        <p>@review.Text</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div> *@
+                </article>
+            </div>
+        </div>
+    </div>
+</body>

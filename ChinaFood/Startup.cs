@@ -1,7 +1,6 @@
 using ChinaFood.Domain;
 using ChinaFood.Domain.Entities;
 using ChinaFood.Service;
-using HotBooking.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
@@ -59,12 +58,12 @@ namespace ChinaFood
             });
 
             //Adding support for controllers and views
-            services.AddControllersWithViews(x =>
-            {
-                x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
-            })
-                //Setting compatibility with asp.net core 3.0
-                .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
+            //services.AddControllersWithViews(x =>
+            //{
+            //    x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
+            //})
+            //    //Setting compatibility with asp.net core 3.0
+            //    .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
 
             //Adding localization
             services.AddLocalization(options => options.ResourcesPath = "Resources");

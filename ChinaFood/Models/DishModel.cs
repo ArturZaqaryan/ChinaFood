@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ChinaFood.Models;
 
-public class Dish : BaseModel
+public class DishModel : BaseModel
 {
     [Required]
     public int DishId { get; set; }

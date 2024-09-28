@@ -1,0 +1,32 @@
+﻿@using ChinaFood
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Options
+
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@* @inject IHtmlLocalizer<CommonResources> SharedLocalizer *@
+@{ var requestCulture = Context.Features.Get<IRequestCultureFeature>();
+    var cultureItems = LocOptions.Value.SupportedUICultures
+        .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
+        .ToList();
+    var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value}{Context.Request.QueryString.Value}";
+}
+
+<div title="@Localizer["Request culture provider:"] @requestCulture?.Provider?.GetType().Name">
+    <form id="selectLanguage"
+          asp-controller="Home"
+          asp-action="SetLanguage"
+          asp-route-returnUrl="@returnUrl"
+          method="post"
+          class="form-horizontal"
+          role="form">
+        <select name="culture"
+                onchange="this.form.submit();"
+                asp-for="@requestCulture.RequestCulture.UICulture.Name">
+            <option value="hy-AM">Armenian</option>
+            <option value="en-US">English</option>
+        </select>
+    </form>
+</div>  

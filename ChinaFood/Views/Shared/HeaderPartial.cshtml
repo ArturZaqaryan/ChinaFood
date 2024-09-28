@@ -1,0 +1,55 @@
+﻿@using HotBooking
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@* @inject IHtmlLocalizer<CommonResources> SharedLocalizer *@
+
+<header class="header">
+    <div class="container">
+        <div class="header__row">
+            <div class="logo">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="logo__link">HotBooking</a>
+            </div>
+            <div class="header__burger">
+                <span></span>
+            </div>
+            <nav class="header__menu">
+                <ul class="header__list">
+                    <li>
+                        <a href="" class="header__link">Currency</a>
+                    </li>
+                    <li>
+                        @await Html.PartialAsync("SelectLanguagePartial")
+                    </li>
+                    <li>
+                        <a href="" class="header__link">Register object</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Account" asp-action="Register" class="header__link">Register</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Account" asp-action="Login" class="header__link">Login</a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="nav">
+                <div class="nav__row">
+                    <div class="nav__item nav__currency">
+                        <a href="" class="nav__link nav__link_white">AMD</a>
+                    </div>
+                    <div class="nav__item nav__language">
+                        @await Html.PartialAsync("SelectLanguagePartial")
+                    </div>
+                    <div class="nav__item nav__register-object">
+                        <a href="" class="nav__link nav__link_white">Register object</a>
+                    </div>
+                    <div class="nav__item nav__register nav__link_teal">
+                        <a asp-controller="Account" asp-action="Register" class="nav__link nav__link_teal">Register</a>
+                    </div>
+                    <div class="nav__item nav__login nav__link_teal">
+                        <a asp-controller="Account" asp-action="Login" class="nav__link nav__link_teal">Login</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

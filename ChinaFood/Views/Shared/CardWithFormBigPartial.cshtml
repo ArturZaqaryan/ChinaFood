@@ -1,0 +1,43 @@
+﻿@using ChinaFood.Domain
+@using ChinaFood.Domain.Entities
+@model DishModel
+
+<div class="article__card card card_big" style="background-image: url(@Model?.TitleImagePath);">
+    <form asp-controller="Search" asp-action="Search" class="poster__form form card__form" method="get">
+        <div class="form__row">
+            <div class="form__item-column">
+                <label for="arrival_date">Arrival date</label>
+                <input type="date" id="arrival_date" name="arrival">
+            </div>
+            <div class="form__item-column">
+                <label for="number_of_children">Children</label>
+                <input type="number" id="number_of_children" name="children" class="form__number" min="0" max="6">
+            </div>
+            <div class="form__item-column">
+                <label for="departure_date">Date of departure</label>
+                <input type="date" id="departure_date" name="departure">
+            </div>
+            <div class="form__item-column">
+                <label for="number_of_adults">Adults</label>
+                <input type="number" id="number_of_adults" name="adults" class="form__number" value="1" min="1" max="9">
+            </div>
+
+            <div class="form__item-column">
+                <label for="number_of_adults">Rooms</label>
+                <input type="number" id="number_of_rooms" name="rooms" class="form__number" value="1" min="1" max="9">
+            </div>
+            <input type="text" name="destination" value="@Model?.Title" style="display: none!important;" />
+            <button type="submit" class="submit">Check prices</button>
+        </div>
+    </form>
+
+    <div class="card__row card card_big" style="background-image: url(@Model?.TitleImagePath);">
+        <div class="card__name">
+            <p>@Model?.Title</p>
+            <p>@Model?.Title</p>
+        </div>
+        <div class="card__price">
+            from 39.95$
+        </div>
+    </div>
+</div>
