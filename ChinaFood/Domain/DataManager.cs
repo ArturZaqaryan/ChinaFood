@@ -9,14 +9,9 @@ using System.Threading.Tasks;
 
 namespace ChinaFood.Domain
 {
-    public class DataManager
+    public class DataManager(IDishesRepository dishesRepository)
     {
-        public IDishesRepository DishesRepository { get; set; }
-
-        public DataManager(IDishesRepository dishesRepository)
-        {
-            this.DishesRepository = dishesRepository;
-        }
+        public IDishesRepository DishesRepository { get; set; } = dishesRepository;
 
         public void GetSelectedTable(PropertyInfo table, out dynamic? selectedTable)
         {

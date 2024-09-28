@@ -7,11 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ChinaFood
 {
-    public class Startup
+    public class Startup(IConfiguration configuration)
     {
-        public IConfiguration Configuration { get; }
-
-        public Startup(IConfiguration configuration) => Configuration = configuration;
+        public IConfiguration Configuration { get; } = configuration;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -73,8 +71,8 @@ namespace ChinaFood
 
             services.Configure<RequestLocalizationOptions>(options =>
             {
-                var supportedCultures = new[] { "en-US", "hy-AM" };
-                options.SetDefaultCulture(supportedCultures[0])
+                var supportedCultures = new[] { "en-US", "hy-AM", "ru-RU" };
+                options.SetDefaultCulture(supportedCultures[1])
                     .AddSupportedCultures(supportedCultures)
                     .AddSupportedUICultures(supportedCultures);
             });
@@ -89,7 +87,7 @@ namespace ChinaFood
             }
 
             //Adding localization
-            var supportedCultures = new[] { "en-US", "hy-AM" };
+            var supportedCultures = new[] { "en-US", "hy-AM", "ru-RU" };
             var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[0])
                 .AddSupportedCultures(supportedCultures)
                 .AddSupportedUICultures(supportedCultures);

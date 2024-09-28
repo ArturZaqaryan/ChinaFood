@@ -1,8 +1,10 @@
-﻿@using HotBooking
+﻿@using ChinaFood
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-@* @inject IHtmlLocalizer<CommonResources> SharedLocalizer *@
-
+@inject IHtmlLocalizer<CommonResources> SharedLocalizer
+@{
+    var x = SharedLocalizer;
+}
 <header class="header">
     <div class="container">
         <div class="header__row">
@@ -24,7 +26,7 @@
                         <a href="" class="header__link">Register object</a>
                     </li>
                     <li>
-                        <a asp-controller="Account" asp-action="Register" class="header__link">Register</a>
+                        <a asp-controller="Account" asp-action="Register" class="header__link">@SharedLocalizer["Register"]</a>
                     </li>
                     <li>
                         <a asp-controller="Account" asp-action="Login" class="header__link">Login</a>
@@ -43,7 +45,7 @@
                         <a href="" class="nav__link nav__link_white">Register object</a>
                     </div>
                     <div class="nav__item nav__register nav__link_teal">
-                        <a asp-controller="Account" asp-action="Register" class="nav__link nav__link_teal">Register</a>
+                        <a asp-controller="Account" asp-action="Register" class="nav__link nav__link_teal">@SharedLocalizer["Register"]</a>
                     </div>
                     <div class="nav__item nav__login nav__link_teal">
                         <a asp-controller="Account" asp-action="Login" class="nav__link nav__link_teal">Login</a>
