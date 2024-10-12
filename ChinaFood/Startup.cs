@@ -1,5 +1,7 @@
 using ChinaFood.Domain;
 using ChinaFood.Domain.Entities;
+using ChinaFood.Domain.Repositories.Abstract;
+using ChinaFood.Domain.Repositories.Entity_Framework;
 using ChinaFood.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -11,6 +13,8 @@ namespace ChinaFood
     {
         public IConfiguration Configuration { get; } = configuration;
 
+        private static readonly string[] configureOptions = ["en-US", "hy-AM", "ru-RU"];
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -20,8 +24,8 @@ namespace ChinaFood
 
             //Connecting the necessary functionality of the application as services
             //services.AddTransient<ITextFieldsRepository, EFTextFieldsRepository>();
-            //services.AddTransient<IInspirationItemsRepository, EFInspirationItemsRepository>();
-            //services.AddTransient<DataManager>();
+            services.AddTransient<IDishesRepository, EFDishesRepository>();
+            services.AddTransient<DataManager>();
 
             //Connecting DB context
             services.AddDbContext<AppDbContext>(
@@ -40,20 +44,19 @@ namespace ChinaFood
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
             //Setting up authentication cookie
-            services.ConfigureApplicationCookie(options =>
-            {
-                options.Cookie.Name = "myCompanyAuth";
-                options.Cookie.HttpOnly = true;
-                options.LoginPath = "/account/login";
-                options.AccessDeniedPath = "/account/accessdenied";
-                options.SlidingExpiration = true;
-            });
+            //services.ConfigureApplicationCookie(options =>
+            //{
+            //    options.Cookie.Name = "myCompanyAuth";
+            //    options.Cookie.HttpOnly = true;
+            //    options.LoginPath = "/account/login";
+            //    options.AccessDeniedPath = "/account/accessdenied";
+            //    options.SlidingExpiration = true;
+            //});
 
             //Configuring the authorization policy for the Admin area
-            services.AddAuthorization(x =>
-            {
-                x.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
-            });
+           // services.AddAuthorizationBuilder()
+                    //Configuring the authorization policy for the Admin area
+                    //.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
 
             //Adding support for controllers and views
             //services.AddControllersWithViews(x =>
@@ -71,7 +74,7 @@ namespace ChinaFood
 
             services.Configure<RequestLocalizationOptions>(options =>
             {
-                var supportedCultures = new[] { "en-US", "hy-AM", "ru-RU" };
+                var supportedCultures = configureOptions;
                 options.SetDefaultCulture(supportedCultures[1])
                     .AddSupportedCultures(supportedCultures)
                     .AddSupportedUICultures(supportedCultures);
@@ -101,9 +104,9 @@ namespace ChinaFood
             app.UseRouting();
 
             //Connecting authentication and authorization
-            app.UseCookiePolicy();
-            app.UseAuthentication();
-            app.UseAuthorization();
+            //app.UseCookiePolicy();
+            //app.UseAuthentication();
+            //app.UseAuthorization();
 
             //Registering the routes(endpoints) we need
             app.UseEndpoints(endpoints =>

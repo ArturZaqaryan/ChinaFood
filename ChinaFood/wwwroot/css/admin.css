@@ -1,0 +1,13 @@
+﻿table#data .action form {
+    display: inline-block;
+    margin-right: 0.5em;
+}
+
+.navbar {
+    background-color: teal !important;
+}
+
+.collapse{
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,11 +1,5 @@
-using ChinaFood.Domain.Entities;
-using HotBooking.Domain.Repositories.Abstract;
-using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using ChinaFood.Domain.Repositories.Abstract;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace ChinaFood.Domain
 {
@@ -13,13 +7,12 @@ namespace ChinaFood.Domain
     {
         public IDishesRepository DishesRepository { get; set; } = dishesRepository;
 
-        public void GetSelectedTable(PropertyInfo table, out dynamic? selectedTable)
+        public void GetSelectedTable(PropertyInfo table, out dynamic selectedTable)
         {
             selectedTable = null;
             if (table != null && table.PropertyType == typeof(IDishesRepository))
             {
-                var repository = table.GetValue(this) as IDishesRepository;
-                if (repository != null)
+                if (table.GetValue(this) is IDishesRepository repository)
                 {
                     selectedTable = repository;
                 }

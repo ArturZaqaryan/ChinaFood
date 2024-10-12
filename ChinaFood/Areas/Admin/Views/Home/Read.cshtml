@@ -1,0 +1,208 @@
+﻿@*<?php
+    require('./config.php');
+    require('./functions.php');
+
+    $table_fields = array();
+    $data = null;
+
+    // Get Tables
+    $tables = get_tables($con);
+    if (!$tables) die("No table found");
+    $selected_table = (isset($_GET['table']) && in_array($_GET['table'], $tables)) ? $_GET['table'] : $tables[0];
+
+
+
+    // Query for getting table fields.
+    $field_sql = "SHOW COLUMNS FROM $selected_table";
+    $fields_res = mysqli_query($con, $field_sql);
+    if ($fields_res && mysqli_num_rows($fields_res) > 0) {
+        $fields = mysqli_fetch_all($fields_res);
+        foreach ($fields as $field) {
+            array_push($table_fields, $field[0]);
+            # code...
+        }
+    } else {
+        die("Table not available.");
+    }
+
+    // Query for getting all the data.
+    $sql = "SELECT * FROM $selected_table";
+    $result = mysqli_query($con, $sql);
+    if ($result && mysqli_num_rows($result) > 0) {
+        $data = mysqli_fetch_all($result);
+    }
+
+    ?>*@
+
+@*<!DOCTYPE html>
+    <html lang="en">
+    <body>
+        <br>
+        <main class="container">
+            <div class="row">
+                <div class="col-3">
+                    <a href="create.php?table=<?= $selected_table ?>" class="btn btn-success">Create</a>
+
+                </div>
+                <div class="col"></div>
+                <div class="col-md-4 col-8 right">
+                    <form action="read.php" method="GET">
+                        <div class="row">
+                            <select name='table' class="col form-select" aria-label="table">
+                                <?php foreach ($tables as $table) : ?>
+                                <option value="<?= $table ?>" <?= $table == $selected_table ? "selected" : "" ?>> <?= $table ?></option>
+                                <?php endforeach ?>
+                            </select>
+                            <button class="col btn btn-success" type="submit">OK</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <hr />
+            <?php if ($data > 0) : ?>
+            <table id="data" class="table">
+                <thead>
+                    <tr>
+                        <?php
+                        foreach ($table_fields as $table_field) {
+                        echo "
+                        <th>$table_field</th>";
+                        }
+
+                        ?>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($data as $row) : ?>
+                    <tr>
+                        <?php foreach ($row as $cell) : ?>
+                        <td><?= $cell ?></td>
+                        <?php endforeach; ?>
+                        <td class="action">
+                            <form action="edit.php" method="GET">
+                                <input name="table" type="hidden" value="<?= $selected_table ?>">
+                                <input name="id" type="hidden" value="<?= $row[0] ?>">
+                                <button type="submit" href="" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                            </form>
+                            <form action="delete.php" method="POST">
+                                <input name="table" type="hidden" value="<?= $selected_table ?>">
+                                <input name="id" type="hidden" value="<?= $row[0] ?>">
+                                <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            <?php else : ?>
+            <h5>No data available.</h5>
+            <?php endif ?>
+        </main>
+    </body>
+
+    </html>*@
+
+@using ChinaFood.Domain;
+@using ChinaFood.Domain.Repositories.Abstract;
+@using System.Reflection;
+@model DataManager
+@{
+    PropertyInfo[] repos = Model.GetType().GetProperties();
+    int selectedIndex = -1;
+    dynamic selectedTable = (IDishesRepository)repos[3].GetValue(Model);
+
+    for (int i = 0; i < repos.Length; i++)
+    {
+        if (repos[i].Name == ViewBag.SelectedTable)
+        {
+            selectedIndex = i;
+        }
+    }
+
+    if (selectedIndex != -1)
+    {
+        Model.GetSelectedTable(repos[selectedIndex], out selectedTable);
+    }
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <br>
+    <main class="container">
+        <div class="row">
+                <div class="col-3">
+                    <a asp-area="Admin" asp-controller="@ViewBag.SelectedTable" asp-action="Edit" class="btn btn-success">Create</a>
+
+                </div>
+            
+            <div class="col"></div>
+            <div class="col-md-4 col-8 right">
+                <form asp-area="Admin" asp-controller="Home" asp-action="Read" method="post">
+                    <div class="row">
+                        <select name='table' class="col form-select" aria-label="table">
+                            <option value="@ViewBag.SelectedTable">@ViewBag.SelectedTable</option>
+                            @foreach (var repo in repos)
+                            {
+                                @if (repo.Name == ViewBag.SelectedTable)
+                                {
+                                    continue;
+                                }
+                                <option value="@repo.Name">@repo.Name</option>
+                            }
+                        </select>
+                        <button class="col btn btn-success" type="submit">OK</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <hr />
+        @if (selectedIndex > -1)
+        {
+            <table id="data" class="table">
+                <thead>
+                    <tr>
+                        @foreach (var item in selectedTable.GetDataNames())
+                        {
+                            <th>@item</th>
+                        }
+
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var table in selectedTable.GetAll())
+                    {
+                        <tr>
+                            @foreach (var data in selectedTable.GetData(table))
+                            {
+                                <td>@data</td>
+                            }
+
+                            <td class="action">
+                                <form asp-area="Admin" asp-controller="@ViewBag.SelectedTable" asp-action="Edit" method="GET">
+                                    <input name="id" type="hidden" value="@table.Id">
+                                    <button type="submit" href="" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></button>
+                                </form>
+                                <form asp-area="Admin" asp-controller="@ViewBag.SelectedTable" asp-action="Delete" method="POST">
+                                    <input name="id" type="hidden" value="@table.Id">
+                                    <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h5>No data available.</h5>
+        }
+    </main>
+</body>
+
+</html>
