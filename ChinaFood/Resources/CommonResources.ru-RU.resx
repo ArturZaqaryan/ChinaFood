@@ -120,4 +120,72 @@
   <data name="Register" xml:space="preserve">
     <value>Зарегистрироваться</value>
   </data>
+  <data name="FavoriteDishes" xml:space="preserve">
+    <value>Любимые Блюда</value>
+  </data>
+  <data name="HotDishes" xml:space="preserve">
+    <value>Горячие блюда</value>
+  </data>
+  <data name="ChineseDishes" xml:space="preserve">
+    <value>Китайские Блюда</value>
+  </data>
+  <data name="JapaneseDishes" xml:space="preserve">
+    <value>Японские Блюда</value>
+  </data>
+  <data name="Drinks" xml:space="preserve">
+    <value>Напитки</value>
+  </data>
+  <data name="PosterTitle1" xml:space="preserve">
+    <value>Вкус Китая:</value>
+  </data>
+  <data name="PosterTitle2" xml:space="preserve">
+    <value>Быстрая доставка настоящих китайских блюд</value>
+  </data>
+  <data name="CompName" xml:space="preserve">
+    <value>China Town</value>
+  </data>
+  <data name="ChinaTownTitle" xml:space="preserve">
+    <value>Онлайн платформа для заказа восточной еды</value>
+  </data>
+  <data name="ChinaTownDesc" xml:space="preserve">
+    <value>China Town – армянский онлайн-сервис заказа восточной еды. Вам понравится наш сайт, если вы цените свое время, деньги и возможность выбора. Вы легко сможете найти нужное блюдо за несколько секунд. Среди предлагаемого ассортимента: китайская еда, японская еда, различные напитки. Откройте для себя подлинные вкусы китайской кухни с нашей удобной доставкой! Мы предлагаем широкий ассортимент блюд, приготовленных по традиционным рецептам с использованием свежих ингредиентов. В нашем меню вы найдете все — от пряной лапши и риса до аппетитных димсамов, сочных уток по-пекински и острых супов. Мы гордимся быстрой доставкой и гарантируем, что каждая порция сохранит свой вкус и аромат до того момента, когда она окажется на вашем столе. Удобный онлайн-заказ позволяет легко выбрать ваши любимые блюда и насладиться богатством восточной кухни не выходя из дома. Закажите прямо сейчас и погрузитесь в мир китайских кулинарных традиций!</value>
+  </data>
+  <data name="FastAndConvenientDeliveryTitle" xml:space="preserve">
+    <value>Быстрая и удобная доставка</value>
+  </data>
+  <data name="FastAndConvenientDeliveryDesc" xml:space="preserve">
+    <value>Клиенты могут заказывать свои любимые китайские блюда онлайн и получать их с доставкой на дом, что экономит время и делает процесс максимально удобным.</value>
+  </data>
+  <data name="WideSelectionOfTraditionalDishesTitle" xml:space="preserve">
+    <value>Широкий ассортимент традиционных блюд</value>
+  </data>
+  <data name="WideSelectionOfTraditionalDishesDesc" xml:space="preserve">
+    <value>В меню представлено множество популярных китайских блюд — от димсамов до утки по-пекински, что позволяет удовлетворить вкусы разных клиентов.</value>
+  </data>
+  <data name="FreshIngredientsAndAuthenticRecipesTitle" xml:space="preserve">
+    <value>Свежие ингредиенты и аутентичные рецепты</value>
+  </data>
+  <data name="FreshIngredientsAndAuthenticRecipesDesc" xml:space="preserve">
+    <value>Все блюда готовятся из свежих продуктов по традиционным китайским рецептам, что обеспечивает настоящие вкусовые ощущения и высокое качество.</value>
+  </data>
+  <data name="EasyOrderingProcessTitle" xml:space="preserve">
+    <value>Простота оформления заказов</value>
+  </data>
+  <data name="EasyOrderingProcessDesc" xml:space="preserve">
+    <value>Пользовательский интерфейс сайта разработан с упором на удобство — клиенты могут легко найти нужные блюда, добавить их в корзину и оформить заказ в несколько кликов.</value>
+  </data>
+  <data name="SpecialOffersAndDiscountsTitle" xml:space="preserve">
+    <value>Специальные предложения и скидки</value>
+  </data>
+  <data name="SpecialOffersAndDiscountsDesc" xml:space="preserve">
+    <value>Регулярные акции, скидки на большие заказы или программы лояльности для постоянных клиентов повышают привлекательность сервиса.
+
+</value>
+  </data>
+  <data name="CustomerSupportAndQualityAssuranceTitle" xml:space="preserve">
+    <value>Поддержка клиентов и гарантия качества</value>
+  </data>
+  <data name="CustomerSupportAndQualityAssuranceDesc" xml:space="preserve">
+    <value>Наш сайт предоставляет оперативную поддержку клиентов для решения любых вопросов или проблем. Мы гарантируем высокое качество еды, и любые претензии будут быстро рассмотрены, поддерживая доверие клиентов.</value>
+  </data>
 </root>

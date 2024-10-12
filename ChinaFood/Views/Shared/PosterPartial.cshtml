@@ -1,7 +1,7 @@
 ﻿@using HotBooking
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-@* @inject IHtmlLocalizer<CommonResources> SharedLocalizer *@
+@inject IHtmlLocalizer<CommonResources> SharedLocalizer
 
 <div class="poster">
     <img src="~/images/back.jpg" alt="" class="poster__back">
@@ -9,8 +9,8 @@
     <div class="container">
         <div class="poster__column">
             <div class="poster__heading">
-                <p>Book hotels anywhere in the world</p>
-                <p>In a few seconds!!!</p>
+                <p>@SharedLocalizer["PosterTitle1"]</p>
+                <p>@SharedLocalizer["PosterTitle2"]</p>
             </div>
             <div class="poster__form-block">
                 @await Html.PartialAsync("SearchForm")

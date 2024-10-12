@@ -120,4 +120,70 @@
   <data name="Register" xml:space="preserve">
     <value>Գրանցվել</value>
   </data>
+  <data name="FavoriteDishes" xml:space="preserve">
+    <value>Սիրված Ուտեստներ</value>
+  </data>
+  <data name="HotDishes" xml:space="preserve">
+    <value>Տաք Ուտեստներ</value>
+  </data>
+  <data name="ChineseDishes" xml:space="preserve">
+    <value>Չինական Ուտեստներ</value>
+  </data>
+  <data name="JapaneseDishes" xml:space="preserve">
+    <value>Ճապոնական Ուտեստներ</value>
+  </data>
+  <data name="Drinks" xml:space="preserve">
+    <value>Ըմպելիքներ</value>
+  </data>
+  <data name="PosterTitle1" xml:space="preserve">
+    <value>Չինաստանի համը.</value>
+  </data>
+  <data name="PosterTitle2" xml:space="preserve">
+    <value>Իսկական չինական ուտեստների արագ առաքում</value>
+  </data>
+  <data name="CompName" xml:space="preserve">
+    <value>China Town</value>
+  </data>
+  <data name="ChinaTownTitle" xml:space="preserve">
+    <value>Առցանց հարթակ՝ արևելյան ուտեստներ պատվիրելու համար</value>
+  </data>
+  <data name="ChinaTownDesc" xml:space="preserve">
+    <value>China Town-ը հայկական առցանց ծառայություն է արևելյան ուտեստներ պատվիրելու համար: Դուք կհավանեք մեր կայքը, եթե գնահատում եք ձեր ժամանակը, գումարը և ընտրության հնարավորությունը։ Դուք կարող եք հեշտությամբ գտնել ձեր նախընտրած ուտեստները վայրկյանների ընթացքում։ Կարող եք ընտրել առաջարկվող ուտեստներից յուրաքանչյուրը՝ չինական ուտեստներ, ճապոնական ուտեստներ, զանազան ըմպելիքներ։ Բացահայտիր արևելյան խոհանոցը մեզ հետ։</value>
+  </data>
+  <data name="FastAndConvenientDeliveryTitle" xml:space="preserve">
+    <value>Արագ և հարմարավետ առաքում</value>
+  </data>
+  <data name="FastAndConvenientDeliveryDesc" xml:space="preserve">
+    <value>Հաճախորդները կարող են պատվիրել իրենց սիրելի չինական ուտեստները առցանց և ստանալ դրանք տուն առաքմամբ, ինչը խնայում է ժամանակը և դարձնում գործընթացը առավել հարմարավետ:</value>
+  </data>
+  <data name="WideSelectionOfTraditionalDishesTitle" xml:space="preserve">
+    <value>Ուտեստների լայն ընտրանի</value>
+  </data>
+  <data name="WideSelectionOfTraditionalDishesDesc" xml:space="preserve">
+    <value>Մենյուում ներկայացված են չինական խոհանոցի բազմաթիվ հայտնի ուտեստներ՝ դիմսամներից մինչև պեկինյան բադ, ինչը հնարավորություն է տալիս բավարարել տարբեր հաճախորդների նախասիրությունները:</value>
+  </data>
+  <data name="FreshIngredientsAndAuthenticRecipesTitle" xml:space="preserve">
+    <value>Թարմ բաղադրիչներ և ավանդական բաղադրատոմսեր</value>
+  </data>
+  <data name="FreshIngredientsAndAuthenticRecipesDesc" xml:space="preserve">
+    <value>Բոլոր ուտեստները պատրաստվում են թարմ մթերքներից՝ ըստ ավանդական չինական բաղադրատոմսերի, ինչը ապահովում է իսկական համային զգացողություններ և բարձր որակ:</value>
+  </data>
+  <data name="EasyOrderingProcessTitle" xml:space="preserve">
+    <value>Պատվերների պարզ ձևակերպում</value>
+  </data>
+  <data name="EasyOrderingProcessDesc" xml:space="preserve">
+    <value>Կայքի օգտագործման ինտերֆեյսը նախագծված է պարզության վրա՝ հաճախորդները հեշտությամբ կարող են գտնել անհրաժեշտ ուտեստները, ավելացնել դրանք զամբյուղում և մի քանի կտտոցով ձևակերպել պատվերը:</value>
+  </data>
+  <data name="SpecialOffersAndDiscountsTitle" xml:space="preserve">
+    <value>Հատուկ առաջարկներ և զեղչեր</value>
+  </data>
+  <data name="SpecialOffersAndDiscountsDesc" xml:space="preserve">
+    <value>Կանոնավոր ակցիաները, զեղչերը մեծ պատվերների համար կամ հավատարմության ծրագրերը մշտական հաճախորդների համար ավելացնում են ծառայության գրավչությունը:</value>
+  </data>
+  <data name="CustomerSupportAndQualityAssuranceTitle" xml:space="preserve">
+    <value>Հաճախորդների աջակցություն և որակի երաշխիք</value>
+  </data>
+  <data name="CustomerSupportAndQualityAssuranceDesc" xml:space="preserve">
+    <value>Մեր կայքը տրամադրում է հարմարավետ հաճախորդների աջակցություն՝ ցանկացած հարցի կամ խնդրի դեպքում: Մենք երաշխավորում ենք որակի պահպանություն, իսկ ցանկացած բողոք արագ կկարգավորվի՝ բարձր պահելով հաճախորդների վստահությունը:</value>
+  </data>
 </root>

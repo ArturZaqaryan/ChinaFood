@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -23,6 +23,9 @@
   <ItemGroup>
     <Folder Include="Domain\Entities\" />
     <Folder Include="Domain\Repositories\EntityFramwork\" />
+    <Folder Include="wwwroot\images\China\" />
+    <Folder Include="wwwroot\images\Japan\" />
+    <Folder Include="wwwroot\images\Drinks\" />
   </ItemGroup>
 
   <ItemGroup>

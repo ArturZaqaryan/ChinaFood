@@ -1,4 +1,7 @@
 ﻿@using ChinaFood.Domain.Entities
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<CommonResources> SharedLocalizer
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -39,11 +42,11 @@
             <div class="content__column">
                 <article class="article">
                     <div class="article__title title">
-                        <h3>HotBooking title</h3>
+                        <h3>@SharedLocalizer["ChinaTownTitle"]</h3>
                     </div>
                     <div class="article__subtitle">
-                        <img src="~/images/bookingImage.jpg" alt="">
-                        <p>HotBooking desc</p>
+                        <img src="~/images/ordering.jpg" alt="">
+                        <p>@SharedLocalizer["ChinaTownDesc"]</p>
                     </div>
                 </article>
 
@@ -51,74 +54,72 @@
                     <div class="article__row">
                         <div class="article__text-block article__text-block_piggy">
                             <div class="article__title_2 title_2">
-                                <p>Low prices</p>
+                                <p>@SharedLocalizer["FastAndConvenientDeliveryTitle"]</p>
                             </div>
                             <div class="text-block__description">
-                                <p>Low prices desc</p>
+                                <p>@SharedLocalizer["FastAndConvenientDeliveryDesc"]</p>
                             </div>
                         </div>
                         <div class="article__text-block article__text-block_key">
                             <div class="article__title_2 title_2">
-                                <p>Hotels Worldwide</p>
+                                <p>@SharedLocalizer["WideSelectionOfTraditionalDishesTitle"]</p>
                             </div>
                             <div class="text-block__description">
-                                <p>Hotels Worldwide desc</p>
+                                <p>@SharedLocalizer["WideSelectionOfTraditionalDishesDesc"]</p>
                             </div>
                         </div>
                         <div class="article__text-block article__text-block_bars">
                             <div class="article__title_2 title_2">
-                                <p>Flexible payment options</p>
+                                <p>@SharedLocalizer["FreshIngredientsAndAuthenticRecipesTitle"]</p>
                             </div>
                             <div class="text-block__description">
-                                <p>Flexible payment options desc</p>
+                                <p>@SharedLocalizer["FreshIngredientsAndAuthenticRecipesDesc"]</p>
                             </div>
                         </div>
                         <div class="article__text-block article__text-block_phone">
                             <div class="article__title_2 title_2">
-                                <p>24/7 Dedicated Customer Care Team</p>
+                                <p>@SharedLocalizer["EasyOrderingProcessTitle"]</p>
                             </div>
                             <div class="text-block__description">
-                                <p>24/7 Dedicated Customer Care Team desc</p>
+                                <p>@SharedLocalizer["EasyOrderingProcessDesc"]</p>
                             </div>
                         </div>
                         <div class="article__text-block article__text-block_message">
                             <div class="article__title_2 title_2">
-                                <p>Reliable Reviews</p>
+                                <p>@SharedLocalizer["SpecialOffersAndDiscountsTitle"]</p>
                             </div>
                             <div class="text-block__description">
-                                <p>Reliable Reviews desc</p>
+                                <p>@SharedLocalizer["SpecialOffersAndDiscountsDesc"]</p>
                             </div>
                         </div>
                         <div class="article__text-block article__text-block_mobile">
                             <div class="article__title_2 title_2">
-                                <p>Free App</p>
+                                <p>@SharedLocalizer["CustomerSupportAndQualityAssuranceTitle"]</p>
                             </div>
                             <div class="description">
-                                <p>Free App desc</p>
+                                <p>@SharedLocalizer["CustomerSupportAndQualityAssuranceDesc"]</p>
                             </div>
                         </div>
                     </div>
                     <div class="article__logo logo logo_centered">
-                        <a href="" class="logo__link">HotBooking</a>
+                        <a href="" class="logo__link">@SharedLocalizer["CompName"]</a>
                     </div>
                 </article>
 
                 <article class="article">
                     <div class="article__title title">
-                        <h3>Favorite cities</h3>
+                        <h3>@SharedLocalizer["ChineseDishes"]</h3>
                     </div>
                     <div class="article__row">
                         @for (int i = 0; i < 6; i++)
                         {
                             if (i == 0 || i == 5)
                             {
-                                @await Html.PartialAsync("CardWithFormBigPartial", favoriteDishes[i])
-                                ;
+                                @await Html.PartialAsync("CardWithFormBigPartial", favoriteDishes[i]);
                             }
                             else
                             {
-                                @await Html.PartialAsync("CardWithFormPartial", favoriteDishes[i])
-                                ;
+                                @await Html.PartialAsync("CardWithFormPartial", favoriteDishes[i]);
                             }
                         }
                     </div>
@@ -126,7 +127,7 @@
 
                 <article class="article">
                     <div class="article__title title">
-                        <h3>Learn more</h3>
+                        <h3>@SharedLocalizer["Drinks"]</h3>
                     </div>
                     <div id="js-carousel-polaroid-5" class="article__row article__row_polaroid owl-carousel polaroid-carousel_5">
                         @foreach (var country in salads)
@@ -167,7 +168,7 @@
 
                 <article class="article">
                     <div class="article__title title">
-                        <h3>Explore Armenia</h3>
+                        <h3>@SharedLocalizer["JapaneseDishes"]</h3>
                     </div>
                     <div class="article__row">
                         @for (int i = 0; i < 6; i++)

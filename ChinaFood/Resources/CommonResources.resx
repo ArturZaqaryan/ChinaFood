@@ -118,6 +118,72 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Register" xml:space="preserve">
-    <value>1</value>
+    <value>Register</value>
+  </data>
+  <data name="FavoriteDishes" xml:space="preserve">
+    <value>Favorite Dishes</value>
+  </data>
+  <data name="HotDishes" xml:space="preserve">
+    <value>Hot Dishes</value>
+  </data>
+  <data name="ChineseDishes" xml:space="preserve">
+    <value>Chinese Dishes</value>
+  </data>
+  <data name="JapaneseDishes" xml:space="preserve">
+    <value>Japanese Dishes</value>
+  </data>
+  <data name="Drinks" xml:space="preserve">
+    <value>Drinks</value>
+  </data>
+  <data name="PosterTitle1" xml:space="preserve">
+    <value>Taste of China:</value>
+  </data>
+  <data name="PosterTitle2" xml:space="preserve">
+    <value>Fast delivery of authentic Chinese dishes</value>
+  </data>
+  <data name="CompName" xml:space="preserve">
+    <value>China Town</value>
+  </data>
+  <data name="ChinaTownTitle" xml:space="preserve">
+    <value>Online platform for ordering eastern food</value>
+  </data>
+  <data name="ChinaTownDesc" xml:space="preserve">
+    <value>China Town– Armenian online service for ordering eastern food. You will enjoy our website if you value your time, money and ability of choice. You can easily find the dish you want in a few seconds. Among assortment offered: chinesse food, japannesse food, various drinks. Discover the authentic flavors of Chinese cuisine with our convenient delivery service! We offer a wide selection of dishes prepared using traditional recipes and fresh ingredients. Our menu includes everything from spicy noodles and rice to delicious dim sum, juicy Peking duck, and flavorful soups. We pride ourselves on fast delivery and guarantee that each portion retains its taste and aroma until it reaches your table. Our easy-to-use online ordering system allows you to choose your favorite dishes and enjoy the richness of Eastern cuisine without leaving your home. Order now and dive into the world of Chinese culinary traditions!</value>
+  </data>
+  <data name="FastAndConvenientDeliveryTitle" xml:space="preserve">
+    <value>Fast and convenient delivery</value>
+  </data>
+  <data name="FastAndConvenientDeliveryDesc" xml:space="preserve">
+    <value>Customers can order their favorite Chinese dishes online and have them delivered to their doorstep, saving time and making the process as convenient as possible.</value>
+  </data>
+  <data name="WideSelectionOfTraditionalDishesTitle" xml:space="preserve">
+    <value>Wide selection of traditional dishes</value>
+  </data>
+  <data name="WideSelectionOfTraditionalDishesDesc" xml:space="preserve">
+    <value>The menu offers a variety of popular Chinese dishes, from dim sum to Peking duck, satisfying the tastes of a diverse range of customers.</value>
+  </data>
+  <data name="FreshIngredientsAndAuthenticRecipesTitle" xml:space="preserve">
+    <value>Fresh ingredients and authentic recipes</value>
+  </data>
+  <data name="FreshIngredientsAndAuthenticRecipesDesc" xml:space="preserve">
+    <value>All dishes are made with fresh ingredients using traditional Chinese recipes, ensuring genuine flavors and high-quality meals.</value>
+  </data>
+  <data name="EasyOrderingProcessTitle" xml:space="preserve">
+    <value>Easy ordering process</value>
+  </data>
+  <data name="EasyOrderingProcessDesc" xml:space="preserve">
+    <value>The website’s user interface is designed for simplicity, allowing customers to easily find their desired dishes, add them to the cart, and place their orders in just a few clicks.</value>
+  </data>
+  <data name="SpecialOffersAndDiscountsTitle" xml:space="preserve">
+    <value>Special offers and discounts</value>
+  </data>
+  <data name="SpecialOffersAndDiscountsDesc" xml:space="preserve">
+    <value>Regular promotions, discounts for large orders, or loyalty programs for returning customers increase the appeal of the service.</value>
+  </data>
+  <data name="CustomerSupportAndQualityAssuranceTitle" xml:space="preserve">
+    <value>Customer Support and Quality Assurance</value>
+  </data>
+  <data name="CustomerSupportAndQualityAssuranceDesc" xml:space="preserve">
+    <value>Our website provides responsive customer support to handle any questions or concerns. We guarantee the quality of our food, and any complaints will be addressed quickly, ensuring customer trust and satisfaction.</value>
   </data>
 </root>

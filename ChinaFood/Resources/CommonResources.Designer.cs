@@ -61,11 +61,209 @@ namespace ChinaFood.Resources {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на 1.
+        ///   Ищет локализованную строку, похожую на China Town– Armenian online service for ordering eastern food. You will enjoy our website if you value your time, money and ability of choice. You can easily find the dish you want in a few seconds. Among assortment offered: chinesse food, japannesse food, various drinks. Discover the authentic flavors of Chinese cuisine with our convenient delivery service! We offer a wide selection of dishes prepared using traditional recipes and fresh ingredients. Our menu includes everything from spicy noodles and rice  [остаток строки не уместился]&quot;;.
+        /// </summary>
+        public static string ChinaTownDesc {
+            get {
+                return ResourceManager.GetString("ChinaTownDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Online platform for ordering eastern food.
+        /// </summary>
+        public static string ChinaTownTitle {
+            get {
+                return ResourceManager.GetString("ChinaTownTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Chinese Dishes.
+        /// </summary>
+        public static string ChineseDishes {
+            get {
+                return ResourceManager.GetString("ChineseDishes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на China Town.
+        /// </summary>
+        public static string CompName {
+            get {
+                return ResourceManager.GetString("CompName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Our website provides responsive customer support to handle any questions or concerns. We guarantee the quality of our food, and any complaints will be addressed quickly, ensuring customer trust and satisfaction..
+        /// </summary>
+        public static string CustomerSupportAndQualityAssuranceDesc {
+            get {
+                return ResourceManager.GetString("CustomerSupportAndQualityAssuranceDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Customer Support and Quality Assurance.
+        /// </summary>
+        public static string CustomerSupportAndQualityAssuranceTitle {
+            get {
+                return ResourceManager.GetString("CustomerSupportAndQualityAssuranceTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Drinks.
+        /// </summary>
+        public static string Drinks {
+            get {
+                return ResourceManager.GetString("Drinks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The website’s user interface is designed for simplicity, allowing customers to easily find their desired dishes, add them to the cart, and place their orders in just a few clicks..
+        /// </summary>
+        public static string EasyOrderingProcessDesc {
+            get {
+                return ResourceManager.GetString("EasyOrderingProcessDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Easy ordering process.
+        /// </summary>
+        public static string EasyOrderingProcessTitle {
+            get {
+                return ResourceManager.GetString("EasyOrderingProcessTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Customers can order their favorite Chinese dishes online and have them delivered to their doorstep, saving time and making the process as convenient as possible..
+        /// </summary>
+        public static string FastAndConvenientDeliveryDesc {
+            get {
+                return ResourceManager.GetString("FastAndConvenientDeliveryDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Fast and convenient delivery.
+        /// </summary>
+        public static string FastAndConvenientDeliveryTitle {
+            get {
+                return ResourceManager.GetString("FastAndConvenientDeliveryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Favorite Dishes.
+        /// </summary>
+        public static string FavoriteDishes {
+            get {
+                return ResourceManager.GetString("FavoriteDishes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на All dishes are made with fresh ingredients using traditional Chinese recipes, ensuring genuine flavors and high-quality meals..
+        /// </summary>
+        public static string FreshIngredientsAndAuthenticRecipesDesc {
+            get {
+                return ResourceManager.GetString("FreshIngredientsAndAuthenticRecipesDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Fresh ingredients and authentic recipes.
+        /// </summary>
+        public static string FreshIngredientsAndAuthenticRecipesTitle {
+            get {
+                return ResourceManager.GetString("FreshIngredientsAndAuthenticRecipesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Hot Dishes.
+        /// </summary>
+        public static string HotDishes {
+            get {
+                return ResourceManager.GetString("HotDishes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Japanese Dishes.
+        /// </summary>
+        public static string JapaneseDishes {
+            get {
+                return ResourceManager.GetString("JapaneseDishes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Taste of China:.
+        /// </summary>
+        public static string PosterTitle1 {
+            get {
+                return ResourceManager.GetString("PosterTitle1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Fast delivery of authentic Chinese dishes.
+        /// </summary>
+        public static string PosterTitle2 {
+            get {
+                return ResourceManager.GetString("PosterTitle2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Register.
         /// </summary>
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Regular promotions, discounts for large orders, or loyalty programs for returning customers increase the appeal of the service..
+        /// </summary>
+        public static string SpecialOffersAndDiscountsDesc {
+            get {
+                return ResourceManager.GetString("SpecialOffersAndDiscountsDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Special offers and discounts.
+        /// </summary>
+        public static string SpecialOffersAndDiscountsTitle {
+            get {
+                return ResourceManager.GetString("SpecialOffersAndDiscountsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на The menu offers a variety of popular Chinese dishes, from dim sum to Peking duck, satisfying the tastes of a diverse range of customers..
+        /// </summary>
+        public static string WideSelectionOfTraditionalDishesDesc {
+            get {
+                return ResourceManager.GetString("WideSelectionOfTraditionalDishesDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Wide selection of traditional dishes.
+        /// </summary>
+        public static string WideSelectionOfTraditionalDishesTitle {
+            get {
+                return ResourceManager.GetString("WideSelectionOfTraditionalDishesTitle", resourceCulture);
             }
         }
     }
