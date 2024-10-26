@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Authorization;
 
-namespace HotBooking.Service
+namespace ChinaFood.Service
 {
     public class AdminAreaAuthorization : IControllerModelConvention
     {

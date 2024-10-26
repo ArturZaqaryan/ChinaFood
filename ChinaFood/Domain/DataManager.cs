@@ -5,7 +5,7 @@ namespace ChinaFood.Domain
 {
     public class DataManager(IDishesRepository dishesRepository)
     {
-        public IDishesRepository DishesRepository { get; set; } = dishesRepository;
+        public IDishesRepository Dishes { get; set; } = dishesRepository;
 
         public void GetSelectedTable(PropertyInfo table, out dynamic selectedTable)
         {

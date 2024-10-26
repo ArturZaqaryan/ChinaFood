@@ -43,28 +43,27 @@ namespace ChinaFood
                 opts.Password.RequireDigit = false;
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
-            //Setting up authentication cookie
-            //services.ConfigureApplicationCookie(options =>
-            //{
-            //    options.Cookie.Name = "myCompanyAuth";
-            //    options.Cookie.HttpOnly = true;
-            //    options.LoginPath = "/account/login";
-            //    options.AccessDeniedPath = "/account/accessdenied";
-            //    options.SlidingExpiration = true;
-            //});
+            // Setting up authentication cookie
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.Name = "myCompanyAuth";
+                options.Cookie.HttpOnly = true;
+                options.LoginPath = "/account/login";
+                options.AccessDeniedPath = "/account/accessdenied";
+                options.SlidingExpiration = true;
+            });
 
-            //Configuring the authorization policy for the Admin area
-           // services.AddAuthorizationBuilder()
-                    //Configuring the authorization policy for the Admin area
-                    //.AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
+            // Configuring the authorization policy for the Admin area
+            services.AddAuthorizationBuilder()
+                    // Configuring the authorization policy for the Admin area
+                    .AddPolicy("AdminArea", policy => { policy.RequireRole("admin"); });
 
             //Adding support for controllers and views
-            //services.AddControllersWithViews(x =>
-            //{
-            //    x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
-            //})
-            //    //Setting compatibility with asp.net core 3.0
-            //    .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0).AddSessionStateTempDataProvider();
+            services.AddControllersWithViews(x =>
+            {
+                x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
+            })
+                .AddSessionStateTempDataProvider();
 
             //Adding localization
             services.AddLocalization(options => options.ResourcesPath = "Resources");
@@ -104,9 +103,9 @@ namespace ChinaFood
             app.UseRouting();
 
             //Connecting authentication and authorization
-            //app.UseCookiePolicy();
-            //app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseCookiePolicy();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             //Registering the routes(endpoints) we need
             app.UseEndpoints(endpoints =>

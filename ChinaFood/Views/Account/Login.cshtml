@@ -1,0 +1,40 @@
+﻿@using ChinaFood
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<CommonResources> SharedLocalizer
+@model LoginViewModel
+@{
+    Layout = "_LayoutWithoutPoster";
+}
+
+<div class="wrapper">
+    <div class="content">
+        <div class="container container_reg">
+            <div class="content__column">
+
+                <form asp-controller="Account" asp-action="Login" asp-route-returnUrl="@ViewBag.returnUrl" class="login-form">
+                    <div class="register-form__title">
+                        <p class="title_2">@Localizer["Sign in"]</p>
+                        <p class="">@Localizer["Sign in desc"]</p>
+                    </div>
+                    <input asp-for="UserName" placeholder="@Localizer["Email"]">
+                    <span asp-validation-for="UserName"></span>
+                    <input asp-for="Password" type="password" name="password" placeholder="@Localizer["Password"]">
+                    <span asp-validation-for="Password"></span>
+                    <label asp-for="RememberMe"></label>
+                    <input asp-for="RememberMe" type="checkbox" />
+                    <p class="register-form__agreement">@Localizer["By proceeding"] <a href="">@Localizer["Terms of Use"]</a> @Localizer["and"] <a href="">@Localizer["Privacy Statement"]</a>.</p>
+                    <input type="submit" value="Sign In" class="register-form__button">
+                </form>
+                <p class="register-form__title_2">@Localizer["Or use one of these options"]</p>
+                <div class="register-form__another_options">
+                    <a href=""><img src="../images/icons/facebook.png" alt=""></a>
+                    <a href=""><img src="../images/icons/google.png" alt=""></a>
+                    <a href=""><img src="../images/icons/apple.png" alt=""></a>
+                </div>
+                <p class="register-form__title_2">@Localizer["Not a HotBooking member?"]  <a asp-controller="Account" asp-action="Register">@Localizer["Register now"]</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+

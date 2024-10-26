@@ -1,0 +1,105 @@
+﻿@using ChinaFood.Domain;
+@using ChinaFood.Domain.Repositories.Abstract;
+@using System.Reflection;
+@model Dish
+@{ 
+    ViewBag.TableName = "Dish";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <br>
+    <main class="container">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Read" class="btn btn-success">Back</a>
+        <hr />
+        <form asp-area="Admin" asp-controller="Dishes" asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="All"></div>
+            <div class="mb-3">
+                <label for="table_name" class="form-label">Table</label>
+                <input value="@ViewBag.TableName" disabled name="table" type="text" class="form-control" id="table_name">
+            </div>
+            <div class="mb-3" hidden>
+                <label asp-for="Id" class="form-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Id" class="form-label"></label>
+                <input asp-for="Id" disabled class="form-control" />
+                <span asp-validation-for="Id"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TitleEn" class="form-label"></label>
+                <input asp-for="TitleEn" class="form-control" />
+                <span asp-validation-for="TitleEn"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="SubtitleEn" class="form-label"></label>
+                <input asp-for="SubtitleEn" class="form-control" />
+                <span asp-validation-for="SubtitleEn"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TextEn" class="form-label"></label>
+                <textarea asp-for="TextEn" class="form-control"></textarea>
+                <span asp-validation-for="TextEn"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TitleArm" class="form-label"></label>
+                <input asp-for="TitleArm" class="form-control" />
+                <span asp-validation-for="TitleArm"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="SubtitleArm" class="form-label"></label>
+                <input asp-for="SubtitleArm" class="form-control" />
+                <span asp-validation-for="SubtitleArm"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TextArm" class="form-label"></label>
+                <textarea asp-for="TextArm" class="form-control"></textarea>
+                <span asp-validation-for="TextArm"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TitleRu" class="form-label"></label>
+                <input asp-for="TitleRu" class="form-control" />
+                <span asp-validation-for="TitleRu"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="SubtitleRu" class="form-label"></label>
+                <input asp-for="SubtitleRu" class="form-control" />
+                <span asp-validation-for="SubtitleRu"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TextRu" class="form-label"></label>
+                <textarea asp-for="TextRu" class="form-control"></textarea>
+                <span asp-validation-for="TextRu"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control  />
+                <span asp-validation-for="Price"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TitleImagePath" class="form-label"></label>
+                <input type="file" name="titleImageFile" class="form-control" accept="image/*" />
+                <input type="text" name="defaultImagePath" hidden value="@Model.TitleImagePath" />
+                <div>
+                    <img src="~/@Model.TitleImagePath" alt="" />
+                </div>
+            </div>
+            <div class="mb-3">
+                <label asp-for="DishType" class="form-label"></label>
+                <select asp-for="DishType" asp-items="Html.GetEnumSelectList<DishType>()" class="form-control"></select>
+                <span asp-validation-for="DishType"></span>
+            </div>
+            @* <div class="mb-3">
+                <label for="country" class="form-label"></label>
+                <select name="country" asp-items="(List<SelectListItem>)ViewBag.Countries" class="form-select"></select>
+            </div> *@
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </main>
+</body>
+
+</html>

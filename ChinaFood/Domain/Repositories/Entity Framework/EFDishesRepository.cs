@@ -147,5 +147,26 @@ namespace ChinaFood.Domain.Repositories.Entity_Framework
             context.Dishes.Remove(new Dish() { Id = id });
             context.SaveChanges();
         }
+
+        public List<string> GetDataNames()
+        {
+            var list = new List<string>() { "Title", "Subtitle", "Text", "Title image path", "Dish type", "Date added" };
+            return list;
+        }
+
+        public List<string> GetData(Dish entity)
+        {
+            var list = new List<string>
+            {
+                entity.TitleEn.ToString(),
+                entity.SubtitleEn?.ToString(),
+                entity.TextEn?.ToString(),
+                entity.TitleImagePath?.ToString(),
+                entity.DishType.ToString(),
+                entity.DateAdded.ToString()
+            };
+
+            return list;
+        }
     }
 }

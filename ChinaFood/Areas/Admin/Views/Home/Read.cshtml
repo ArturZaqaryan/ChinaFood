@@ -111,7 +111,7 @@
 @{
     PropertyInfo[] repos = Model.GetType().GetProperties();
     int selectedIndex = -1;
-    dynamic selectedTable = (IDishesRepository)repos[3].GetValue(Model);
+    dynamic selectedTable = (IDishesRepository)repos[0].GetValue(Model);
 
     for (int i = 0; i < repos.Length; i++)
     {

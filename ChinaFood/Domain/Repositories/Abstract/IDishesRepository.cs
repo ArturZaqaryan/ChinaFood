@@ -12,5 +12,6 @@ namespace ChinaFood.Domain.Repositories.Abstract
         DishModel GetByIdAndCulture(Guid id, CultureInfo culture);
         void Save(Dish entity);
         void Delete(Guid id);
+        List<string> GetDataNames();
     }
 }
