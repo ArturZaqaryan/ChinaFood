@@ -186,4 +186,31 @@
   <data name="CustomerSupportAndQualityAssuranceDesc" xml:space="preserve">
     <value>Մեր կայքը տրամադրում է հարմարավետ հաճախորդների աջակցություն՝ ցանկացած հարցի կամ խնդրի դեպքում: Մենք երաշխավորում ենք որակի պահպանություն, իսկ ցանկացած բողոք արագ կկարգավորվի՝ բարձր պահելով հաճախորդների վստահությունը:</value>
   </data>
+  <data name="InputDishName" xml:space="preserve">
+    <value>Ներմուծեք անունը</value>
+  </data>
+  <data name="DishName" xml:space="preserve">
+    <value>Ուտեստի կամ ըմպելիքի անունը</value>
+  </data>
+  <data name="MinPrice" xml:space="preserve">
+    <value>Նվազագույն գին</value>
+  </data>
+  <data name="MaxPrice" xml:space="preserve">
+    <value>Առավելագույն գին</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Որոնել</value>
+  </data>
+  <data name="DishType" xml:space="preserve">
+    <value>Տեսակ</value>
+  </data>
+  <data name="China" xml:space="preserve">
+    <value>Չինաստան</value>
+  </data>
+  <data name="Japan" xml:space="preserve">
+    <value>Ճապոնիա</value>
+  </data>
+  <data name="Drink" xml:space="preserve">
+    <value>Ըմպելիք</value>
+  </data>
 </root>

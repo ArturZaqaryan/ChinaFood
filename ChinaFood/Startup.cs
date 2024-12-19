@@ -25,6 +25,7 @@ namespace ChinaFood
             //Connecting the necessary functionality of the application as services
             //services.AddTransient<ITextFieldsRepository, EFTextFieldsRepository>();
             services.AddTransient<IDishesRepository, EFDishesRepository>();
+            services.AddTransient<ISubCategoriesRepository, EFSubCategoriesRepository>();
             services.AddTransient<DataManager>();
 
             //Connecting DB context
@@ -64,6 +65,13 @@ namespace ChinaFood
                 x.Conventions.Add(new AdminAreaAuthorization("Admin", "AdminArea"));
             })
                 .AddSessionStateTempDataProvider();
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); // Время жизни сессии
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true; // Обязательно для работы сессий
+            });
 
             //Adding localization
             services.AddLocalization(options => options.ResourcesPath = "Resources");
@@ -106,6 +114,8 @@ namespace ChinaFood
             app.UseCookiePolicy();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSession(); // Включение сессий
 
             //Registering the routes(endpoints) we need
             app.UseEndpoints(endpoints =>

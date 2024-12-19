@@ -41,14 +41,11 @@
                     <div class="nav__item nav__language">
                         @await Html.PartialAsync("SelectLanguagePartial")
                     </div>
-                    <div class="nav__item nav__register-object">
-                        <a href="" class="nav__link nav__link_white">Register object</a>
-                    </div>
-                    <div class="nav__item nav__register nav__link_teal">
-                        <a asp-controller="Account" asp-action="Register" class="nav__link nav__link_teal">@SharedLocalizer["Register"]</a>
-                    </div>
-                    <div class="nav__item nav__login nav__link_teal">
-                        <a asp-controller="Account" asp-action="Login" class="nav__link nav__link_teal">Login</a>
+                    <div class="nav__item nav__cart">
+                        <a href="/Cart/Cart" class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i> <!-- Иконка корзины -->
+                            <span class="cart-count">0</span> <!-- Количество товаров -->
+                        </a>
                     </div>
                 </div>
             </nav>

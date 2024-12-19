@@ -49,6 +49,9 @@ namespace ChinaFood.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<Guid>("SubCategoryId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("SubtitleArm")
                         .HasColumnType("nvarchar(max)");
 
@@ -81,7 +84,227 @@ namespace ChinaFood.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("SubCategoryId");
+
                     b.ToTable("Dishes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("3a5a553c-f617-483a-bccd-d52c7dc4391f"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9735),
+                            DishType = 0,
+                            Price = 12.99m,
+                            SubCategoryId = new Guid("547a230d-a5e0-4885-8f35-4a17f8d47e1b"),
+                            SubtitleEn = "Spicy stir-fried chicken",
+                            TitleArm = "Կունգ Պաո Հավ",
+                            TitleEn = "Kung Pao Chicken",
+                            TitleRu = "Кунг Пао Курочка"
+                        },
+                        new
+                        {
+                            Id = new Guid("6b518d90-f3dc-4ac7-9b9e-0e3fe99c1179"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9738),
+                            DishType = 0,
+                            Price = 15.50m,
+                            SubCategoryId = new Guid("547a230d-a5e0-4885-8f35-4a17f8d47e1b"),
+                            SubtitleEn = "Traditional sweet pork",
+                            TitleArm = "Քաղցր և Թթու Խոզ",
+                            TitleEn = "Sweet and Sour Pork",
+                            TitleRu = "Сладкая и кислая свинина"
+                        },
+                        new
+                        {
+                            Id = new Guid("6f59c965-6c31-4c2f-93e4-fb06e4d1c02a"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9741),
+                            DishType = 0,
+                            Price = 10.20m,
+                            SubCategoryId = new Guid("547a230d-a5e0-4885-8f35-4a17f8d47e1b"),
+                            SubtitleEn = "Spicy Sichuan tofu",
+                            TitleArm = "Մա Պո Թոֆու",
+                            TitleEn = "Ma Po Tofu",
+                            TitleRu = "Ма По Тофу"
+                        },
+                        new
+                        {
+                            Id = new Guid("dbbf4fc9-4b4d-48e7-8849-12cb2e530684"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9744),
+                            DishType = 0,
+                            Price = 8.75m,
+                            SubCategoryId = new Guid("eeb295fd-8c9f-40a2-9927-6d88a6e371da"),
+                            SubtitleEn = "Crispy duck with sauce",
+                            TitleArm = "Պեկինյան Բադ",
+                            TitleEn = "Peking Duck",
+                            TitleRu = "Пекинская утка"
+                        },
+                        new
+                        {
+                            Id = new Guid("192c267f-aa05-4c52-b989-da1172234966"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9747),
+                            DishType = 0,
+                            Price = 9.99m,
+                            SubCategoryId = new Guid("eeb295fd-8c9f-40a2-9927-6d88a6e371da"),
+                            SubtitleEn = "Crispy fried rolls",
+                            TitleArm = "Գարնանային Շարունակվածքներ",
+                            TitleEn = "Spring Rolls",
+                            TitleRu = "Весенние роллы"
+                        },
+                        new
+                        {
+                            Id = new Guid("4795a0e0-5659-45e7-bbbf-3adf2ff32000"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9749),
+                            DishType = 0,
+                            Price = 7.80m,
+                            SubCategoryId = new Guid("eeb295fd-8c9f-40a2-9927-6d88a6e371da"),
+                            SubtitleEn = "Traditional Chinese dumplings",
+                            TitleArm = "Դիմ Սում",
+                            TitleEn = "Dim Sum",
+                            TitleRu = "Дим Сам"
+                        },
+                        new
+                        {
+                            Id = new Guid("a97dfec5-1539-41d9-80fd-b9e71be367a2"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9760),
+                            DishType = 1,
+                            Price = 12.99m,
+                            SubCategoryId = new Guid("f9efe343-07b1-4bfc-96f0-0feeeee146cd"),
+                            SubtitleEn = "Traditional Japanese rice and fish",
+                            TitleArm = "Սուշի",
+                            TitleEn = "Sushi",
+                            TitleRu = "Суши"
+                        },
+                        new
+                        {
+                            Id = new Guid("79f56c5a-048f-4037-b224-76f23e318fd8"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9763),
+                            DishType = 1,
+                            Price = 14.50m,
+                            SubCategoryId = new Guid("f9efe343-07b1-4bfc-96f0-0feeeee146cd"),
+                            SubtitleEn = "Noodle soup with various toppings",
+                            TitleArm = "Ռամեն",
+                            TitleEn = "Ramen",
+                            TitleRu = "Рамен"
+                        },
+                        new
+                        {
+                            Id = new Guid("46060f79-cb42-4273-91aa-b8ea163a40c5"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9766),
+                            DishType = 1,
+                            Price = 11.25m,
+                            SubCategoryId = new Guid("f9efe343-07b1-4bfc-96f0-0feeeee146cd"),
+                            SubtitleEn = "Battered and fried seafood or vegetables",
+                            TitleArm = "Տեմպուրա",
+                            TitleEn = "Tempura",
+                            TitleRu = "Темпура"
+                        },
+                        new
+                        {
+                            Id = new Guid("fef4d7c3-c413-4f15-acb0-f5003c620e15"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9769),
+                            DishType = 1,
+                            Price = 13.30m,
+                            SubCategoryId = new Guid("f9efe343-07b1-4bfc-96f0-0feeeee146cd"),
+                            SubtitleEn = "Thick wheat flour noodles",
+                            TitleArm = "Ուդոն",
+                            TitleEn = "Udon",
+                            TitleRu = "Удон"
+                        },
+                        new
+                        {
+                            Id = new Guid("631bebc5-5eac-4d17-9a03-0f717ac1b750"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9772),
+                            DishType = 1,
+                            Price = 10.99m,
+                            SubCategoryId = new Guid("f9efe343-07b1-4bfc-96f0-0feeeee146cd"),
+                            SubtitleEn = "Fresh sliced raw fish",
+                            TitleArm = "Սաշիմի",
+                            TitleEn = "Sashimi",
+                            TitleRu = "Сашими"
+                        },
+                        new
+                        {
+                            Id = new Guid("c64e3df8-5574-41cc-8755-42046390c5bd"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9775),
+                            DishType = 1,
+                            Price = 15.99m,
+                            SubCategoryId = new Guid("f9efe343-07b1-4bfc-96f0-0feeeee146cd"),
+                            SubtitleEn = "Grilled skewered chicken",
+                            TitleArm = "Յակիտորի",
+                            TitleEn = "Yakitori",
+                            TitleRu = "Якитори"
+                        },
+                        new
+                        {
+                            Id = new Guid("6b7a1d12-32a6-4c90-959c-75eceb117763"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9777),
+                            DishType = 2,
+                            Price = 5.99m,
+                            SubCategoryId = new Guid("83beee31-2b8d-488a-b6a0-2b672d515720"),
+                            SubtitleEn = "Traditional Japanese tea",
+                            TitleArm = "Կանաչ Թեյ",
+                            TitleEn = "Green Tea",
+                            TitleRu = "Зеленый чай"
+                        },
+                        new
+                        {
+                            Id = new Guid("51dddbc4-56fb-4392-b36a-229b9ca14372"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9780),
+                            DishType = 2,
+                            Price = 6.50m,
+                            SubCategoryId = new Guid("83beee31-2b8d-488a-b6a0-2b672d515720"),
+                            SubtitleEn = "Japanese rice wine",
+                            TitleArm = "Սակե",
+                            TitleEn = "Sake",
+                            TitleRu = "Саке"
+                        },
+                        new
+                        {
+                            Id = new Guid("910640b3-4543-49d3-8255-766af4e4adef"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 34, DateTimeKind.Utc).AddTicks(19),
+                            DishType = 2,
+                            Price = 4.75m,
+                            SubCategoryId = new Guid("83beee31-2b8d-488a-b6a0-2b672d515720"),
+                            SubtitleEn = "Chinese tea",
+                            TitleArm = "Օլոնգ Թեյ",
+                            TitleEn = "Oolong Tea",
+                            TitleRu = "Улун чай"
+                        },
+                        new
+                        {
+                            Id = new Guid("5ce4d82b-c4a4-40c1-ba2a-fbecc3325fab"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 34, DateTimeKind.Utc).AddTicks(22),
+                            DishType = 2,
+                            Price = 3.99m,
+                            SubCategoryId = new Guid("83beee31-2b8d-488a-b6a0-2b672d515720"),
+                            SubtitleEn = "Scented green tea",
+                            TitleArm = "Յասմին Թեյ",
+                            TitleEn = "Jasmine Tea",
+                            TitleRu = "Жасминовый чай"
+                        },
+                        new
+                        {
+                            Id = new Guid("7e492f07-96d3-4bc0-8457-44aba3a2108d"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 34, DateTimeKind.Utc).AddTicks(25),
+                            DishType = 2,
+                            Price = 7.00m,
+                            SubCategoryId = new Guid("83beee31-2b8d-488a-b6a0-2b672d515720"),
+                            SubtitleEn = "Tea with tapioca pearls",
+                            TitleArm = "Բուբլ Թեյ",
+                            TitleEn = "Bubble Tea",
+                            TitleRu = "Бабл-чай"
+                        },
+                        new
+                        {
+                            Id = new Guid("237a2729-a314-4da1-8589-d6a26a2ac5c5"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 34, DateTimeKind.Utc).AddTicks(28),
+                            DishType = 2,
+                            Price = 4.50m,
+                            SubCategoryId = new Guid("83beee31-2b8d-488a-b6a0-2b672d515720"),
+                            SubtitleEn = "Chinese black tea",
+                            TitleArm = "Սև Թեյ",
+                            TitleEn = "Black Tea",
+                            TitleRu = "Черный чай"
+                        });
                 });
 
             modelBuilder.Entity("ChinaFood.Domain.Entities.Order", b =>
@@ -215,6 +438,181 @@ namespace ChinaFood.Migrations
                     b.ToTable("OrderItems");
                 });
 
+            modelBuilder.Entity("ChinaFood.Domain.Entities.SubCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DishType")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MetaDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywords")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubtitleArm")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubtitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubtitleRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TextArm")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TextEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TextRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleArm")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleEn")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TitleRu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SubCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("547a230d-a5e0-4885-8f35-4a17f8d47e1b"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9631),
+                            DishType = 0,
+                            TitleArm = "Աղցաններ",
+                            TitleEn = "Salads",
+                            TitleRu = "Салаты"
+                        },
+                        new
+                        {
+                            Id = new Guid("eeb295fd-8c9f-40a2-9927-6d88a6e371da"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9646),
+                            DishType = 0,
+                            TitleArm = "Ապուրներ",
+                            TitleEn = "Soups",
+                            TitleRu = "Супы"
+                        },
+                        new
+                        {
+                            Id = new Guid("49803b04-2981-4d3f-99fb-34c0e41a64b6"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9648),
+                            DishType = 0,
+                            TitleArm = "Լապշաներ",
+                            TitleEn = "Noodles",
+                            TitleRu = "Лапша"
+                        },
+                        new
+                        {
+                            Id = new Guid("4deeef11-00ca-4fcd-9184-431d15e9e39d"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9652),
+                            DishType = 0,
+                            TitleArm = "Բրինձներ, հաց",
+                            TitleEn = "Rice and bread",
+                            TitleRu = "Рис, хлеб"
+                        },
+                        new
+                        {
+                            Id = new Guid("9e395771-48ce-46ea-95c9-806fae12946f"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9653),
+                            DishType = 0,
+                            TitleArm = "Հորթի մսով կերակուրներ",
+                            TitleEn = "Veal dishes",
+                            TitleRu = "Блюда из телятины"
+                        },
+                        new
+                        {
+                            Id = new Guid("3538e8ff-aeac-4ca1-aa68-9fa34d0453d5"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9655),
+                            DishType = 0,
+                            TitleArm = "Խոզի մսով կերակուրներ",
+                            TitleEn = "Pork dishes",
+                            TitleRu = "Блюда из свинины"
+                        },
+                        new
+                        {
+                            Id = new Guid("f7ae30c0-5ec7-4736-8302-c7553a9516a2"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9656),
+                            DishType = 0,
+                            TitleArm = "Հավի մսով կերակուրներ",
+                            TitleEn = "Chicken dishes",
+                            TitleRu = "Блюда из курицы"
+                        },
+                        new
+                        {
+                            Id = new Guid("dc70a381-ba5c-4a1f-bb63-c7d0d8c52188"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9658),
+                            DishType = 0,
+                            TitleArm = "Գառի մսով կերակուրներ",
+                            TitleEn = "Lamb dishes",
+                            TitleRu = "Блюда из баранины"
+                        },
+                        new
+                        {
+                            Id = new Guid("8dd7be8f-742a-4d01-bcc9-c7a276027c17"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9659),
+                            DishType = 0,
+                            TitleArm = "Ճագարի մսով կերակուրներ",
+                            TitleEn = "Rabbit dishes",
+                            TitleRu = "Блюда из мяса кролика"
+                        },
+                        new
+                        {
+                            Id = new Guid("bfbd9fd9-f98f-42ec-99cb-a14545c89ecc"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9660),
+                            DishType = 0,
+                            TitleArm = "Ծովամթերքով կերակուրներ",
+                            TitleEn = "Seafood dishes",
+                            TitleRu = "Блюда из морепродуктов"
+                        },
+                        new
+                        {
+                            Id = new Guid("63f6c1d4-b259-48fd-9bd3-9c8dc5ce7838"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9662),
+                            DishType = 0,
+                            TitleArm = "Պիլմենիներ",
+                            TitleEn = "Dumplings",
+                            TitleRu = "пельмени"
+                        },
+                        new
+                        {
+                            Id = new Guid("f9efe343-07b1-4bfc-96f0-0feeeee146cd"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9663),
+                            DishType = 1,
+                            TitleArm = "Սեթեր",
+                            TitleEn = "Sets",
+                            TitleRu = "Сеты"
+                        },
+                        new
+                        {
+                            Id = new Guid("83beee31-2b8d-488a-b6a0-2b672d515720"),
+                            DateAdded = new DateTime(2024, 12, 16, 19, 15, 31, 33, DateTimeKind.Utc).AddTicks(9665),
+                            DishType = 2,
+                            TitleArm = "Թեյեր",
+                            TitleEn = "Tea's",
+                            TitleRu = "Чайы"
+                        });
+                });
+
             modelBuilder.Entity("ChinaFood.Domain.Entities.User", b =>
                 {
                     b.Property<string>("Id")
@@ -287,13 +685,13 @@ namespace ChinaFood.Migrations
                         {
                             Id = "3b62472e-4f66-49fa-a20f-e7685b9565d8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "69d62acf-5c91-49e2-a751-796acb4a15dc",
+                            ConcurrencyStamp = "54c77c62-ce1c-46c5-8b65-d345a0e2f9b6",
                             Email = "my@email.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "MY@EMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEP/O4qsENQo9a4lAR7ZaTH3u8PRddf3T2tf4Hndyi36oyB6LOvShIKIIzPIZlcEmTA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEN8DsXYrvJAs0S3CZvVySsrdxJChhWyDynf2UYF4nskvM/DDOXewY2qoWCdlL+wY/Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -447,6 +845,17 @@ namespace ChinaFood.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("ChinaFood.Domain.Entities.Dish", b =>
+                {
+                    b.HasOne("ChinaFood.Domain.Entities.SubCategory", "SubCategory")
+                        .WithMany()
+                        .HasForeignKey("SubCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("SubCategory");
                 });
 
             modelBuilder.Entity("ChinaFood.Domain.Entities.OrderItem", b =>

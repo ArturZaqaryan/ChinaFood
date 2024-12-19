@@ -188,4 +188,31 @@
   <data name="CustomerSupportAndQualityAssuranceDesc" xml:space="preserve">
     <value>Наш сайт предоставляет оперативную поддержку клиентов для решения любых вопросов или проблем. Мы гарантируем высокое качество еды, и любые претензии будут быстро рассмотрены, поддерживая доверие клиентов.</value>
   </data>
+  <data name="InputDishName" xml:space="preserve">
+    <value>введите мя блюда или напитка</value>
+  </data>
+  <data name="DishName" xml:space="preserve">
+    <value>Имя блюда или напитка</value>
+  </data>
+  <data name="MinPrice" xml:space="preserve">
+    <value>Минимальная цена</value>
+  </data>
+  <data name="MaxPrice" xml:space="preserve">
+    <value>Максимальная цена</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Найти</value>
+  </data>
+  <data name="DishType" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="China" xml:space="preserve">
+    <value>Китай</value>
+  </data>
+  <data name="Japan" xml:space="preserve">
+    <value>Япония</value>
+  </data>
+  <data name="Drink" xml:space="preserve">
+    <value>Напиток</value>
+  </data>
 </root>

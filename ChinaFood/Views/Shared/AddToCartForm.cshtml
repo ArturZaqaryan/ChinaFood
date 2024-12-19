@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<CommonResources> SharedLocalizer
+
+<form asp-controller="Cart" asp-action="AddToCart" class="add-to-cart-form poster__form form card__form" method="post">
+    <!-- Hidden inputs to send product details -->
+    <input type="hidden" name="productId" value="@Model.Id" />
+    <input type="hidden" name="title" value="@Model.Title" />
+    <input type="hidden" name="price" value="@Model.Price" />
+
+    <div class="form__row">
+        <div class="form__item-column">
+            <label for="count">@SharedLocalizer["DishType"]</label>
+            <input id="count" name="quantity" type="number" class="form__number" min="1" value="1">
+        </div>
+        <button class="submit add-to-cart">Add to Cart</button>
+    </div>
+</form>

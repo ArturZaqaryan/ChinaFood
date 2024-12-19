@@ -186,4 +186,31 @@
   <data name="CustomerSupportAndQualityAssuranceDesc" xml:space="preserve">
     <value>Our website provides responsive customer support to handle any questions or concerns. We guarantee the quality of our food, and any complaints will be addressed quickly, ensuring customer trust and satisfaction.</value>
   </data>
+  <data name="InputDishName" xml:space="preserve">
+    <value>Input dish or drink name </value>
+  </data>
+  <data name="DishName" xml:space="preserve">
+    <value>Dish or drink name</value>
+  </data>
+  <data name="MinPrice" xml:space="preserve">
+    <value>Minimal price</value>
+  </data>
+  <data name="MaxPrice" xml:space="preserve">
+    <value>Maximal price</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="DishType" xml:space="preserve">
+    <value>Dish type</value>
+  </data>
+  <data name="China" xml:space="preserve">
+    <value>China</value>
+  </data>
+  <data name="Japan" xml:space="preserve">
+    <value>Japan</value>
+  </data>
+  <data name="Drink" xml:space="preserve">
+    <value>Drink</value>
+  </data>
 </root>

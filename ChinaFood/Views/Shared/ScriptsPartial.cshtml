@@ -1,1 +1,225 @@
 ﻿<script src="~/js/scrypt.js"></script>
+<script src="~/js/cart.js"></script>
+@* <script>
+    $(document).ready(function () {
+        // Attach a submit event to all forms with the 'add-to-cart-form' class
+        $('.add-to-cart-form').submit(function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var $form = $(this); // Reference to the current form
+            var formData = $form.serialize(); // Serialize the form data
+
+            // Perform the AJAX request
+            $.ajax({
+                url: '@Url.Action("AddToCart", "Cart")', // Target action and controller
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    if (response.success) {
+                        $form.next('.cart-status').text(response.message); // Update the status next to the form
+                    } else {
+                        $form.next('.cart-status').text('Failed to add product to cart.');
+                    }
+                },
+                error: function () {
+                    $form.next('.cart-status').text('An error occurred while adding to the cart.');
+                }
+            });
+        });
+    });
+</script> *@
+@* <script>
+    $(document).ready(function () {
+        // Обработка отправки формы добавления в корзину
+        $('.add-to-cart-form').submit(function (event) {
+            event.preventDefault(); // Отключить стандартную отправку формы
+
+            var $form = $(this); // Получить текущую форму
+            var formData = $form.serialize(); // Сериализовать данные формы
+
+            // Выполнить AJAX-запрос
+            $.ajax({
+                url: '@Url.Action("AddToCart", "Cart")', // URL действия контроллера
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    if (response.success) {
+                        // Отображение сообщения рядом с формой
+                        $form.next('.cart-status').text(response.message);
+
+                        // Обновление числа товаров в корзине
+                        updateCartCount($form.find('input[name="quantity"]').val());
+                    } else {
+                        $form.next('.cart-status').text('Failed to add product to cart.');
+                    }
+                },
+                error: function () {
+                    $form.next('.cart-status').text('An error occurred while adding to the cart.');
+                }
+            });
+        });
+
+        // Функция обновления счетчика корзины
+        function updateCartCount(quantity) {
+            var $cartCountElement = $('.cart-count'); // Найти элемент с числом товаров
+            var currentCount = parseInt($cartCountElement.text()) || 0; // Текущее значение (по умолчанию 0)
+            var newCount = currentCount + parseInt(quantity); // Обновить значение
+            $cartCountElement.text(newCount); // Установить новое значение
+        }
+    });
+</script> *@
+<script>
+    $(document).ready(function () {
+        // Получение текущего количества товаров в корзине при загрузке страницы
+        updateCartCountFromServer();
+
+        function updateCartCountFromServer() {
+            $.ajax({
+                url: '/Cart/GetCartCount', // Действие контроллера для получения количества
+                type: 'GET',
+                success: function (response) {
+                    if (response.itemCount !== undefined) {
+                        $('.cart-count').text(response.itemCount);
+                    }
+                },
+                error: function () {
+                    console.error('Failed to load cart count.');
+                }
+            });
+        }
+
+        // Обработка добавления в корзину (как в предыдущем скрипте)
+        $('.add-to-cart-form').submit(function (event) {
+            event.preventDefault();
+            var $form = $(this);
+            var formData = $form.serialize();
+
+            $.ajax({
+                url: '@Url.Action("AddToCart", "Cart")',
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    if (response.success) {
+                        $form.next('.cart-status').text(response.message);
+                        updateCartCountFromServer(); // Обновить счетчик корзины
+                    } else {
+                        $form.next('.cart-status').text('Failed to add product to cart.');
+                    }
+                },
+                error: function () {
+                    $form.next('.cart-status').text('An error occurred while adding to the cart.');
+                }
+            });
+        });
+
+        // Обновить общее значение корзины
+        function updateCartTotal(total) {
+            $('#cart-total').text(total.toFixed(2));
+        }
+
+        // Удаление товара из корзины
+        $(document).on('click', '.remove-item', function () {
+            const productId = $(this).data('product-id');
+
+            $.ajax({
+                url: '/Cart/RemoveCartItem',
+                type: 'POST',
+                data: { productId },
+                success: function (response) {
+                    if (response.success) {
+                        $(`#cart-item-${productId}`).remove(); // Удалить строку из таблицы
+                        updateCartTotal(response.cartTotal); // Обновить общую сумму
+                    }
+                }
+            });
+        });
+
+        // Изменение количества товара
+        $(document).on('change', '.item-quantity', function () {
+            const productId = $(this).data('product-id');
+            const quantity = parseInt($(this).val(), 10);
+
+            $.ajax({
+                url: '/Cart/UpdateCartItem',
+                type: 'POST',
+                data: { productId, quantity },
+                success: function (response) {
+                    if (response.success) {
+                        const row = $(`#cart-item-${productId}`);
+                        const price = parseFloat(row.find('.item-price').text());
+                        row.find('.item-total').text((price * quantity).toFixed(2)); // Обновить сумму товара
+                        updateCartTotal(response.cartTotal); // Обновить общую сумму
+                    }
+                }
+            });
+        });
+
+        // Открыть форму оформления заказа
+        $('#checkout-button').click(function () {
+            $('.checkout-form').show();
+        });
+
+        // Отправка формы оформления заказа
+        $('#checkout-form').submit(function (event) {
+            event.preventDefault();
+
+            const formData = $(this).serialize();
+            $.ajax({
+                url: '/Cart/Checkout',
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        location.reload(); // Перезагрузка страницы для очистки корзины
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+        });
+    });
+
+
+    // Загрузка товаров корзины при загрузке страницы
+    function loadCartItems() {
+        $.ajax({
+            url: '/Cart/GetCartItems', // Запрос к серверу
+            type: 'GET',
+            success: function (response) {
+                if (response.success) {
+                    const items = response.items;
+                    const cartBody = $('table tbody');
+                    cartBody.empty(); // Очистить старые элементы
+
+                    items.forEach(item => {
+                        const rowHtml = `
+                                <tr id="cart-item-${item.productId}">
+                                    <td>${item.title}</td>
+                                    <td class="item-price">${item.price.toFixed(2)}</td>
+                                    <td>
+                                        <input type="number" class="item-quantity" data-product-id="${item.productId}" value="${item.quantity}" min="1">
+                                    </td>
+                                    <td class="item-total">${item.total.toFixed(2)}</td>
+                                    <td>
+                                        <button class="remove-item" data-product-id="${item.productId}">Remove</button>
+                                    </td>
+                                </tr>`;
+                        cartBody.append(rowHtml); // Добавить строку в таблицу
+                    });
+
+                    // Обновить общую сумму корзины
+                    $('#cart-total').text(response.cartTotal.toFixed(2));
+                } else {
+                    alert('Failed to load cart items.');
+                }
+            },
+            error: function () {
+                alert('Error occurred while loading cart items.');
+            }
+        });
+    }
+
+    // Вызов функции загрузки при загрузке страницы
+    loadCartItems();
+</script>

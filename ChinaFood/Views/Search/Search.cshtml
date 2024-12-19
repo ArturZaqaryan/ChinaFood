@@ -1,0 +1,45 @@
+﻿@using ChinaFood.Domain.Entities
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<CommonResources> SharedLocalizer
+@model Dictionary<DishType, Dictionary<SubCategoryModel, List<DishModel>>>
+
+<div class="container search-results">
+    <h2 class="title">Search Results</h2>
+    <div class="content__column">
+        @foreach(var dishPair in Model)
+        {
+            <article class="article">
+                <div class="article__title title">
+                    <h3>@{
+                            switch (dishPair.Key)
+                            {
+                                case DishType.China:
+                                    @SharedLocalizer["ChineseDishes"]
+                                    break;
+                                case DishType.Japan:
+                                    @SharedLocalizer["JapanesseDishes"]
+                                    break;
+                                case DishType.Drink:
+                                    @SharedLocalizer["Drinks"]
+                                    break;
+                            }  
+                            }
+                    </h3>
+                </div>
+                @foreach (var subCategoryPair in dishPair.Value)
+                {
+                    <div class="article__title title_left">
+                        @subCategoryPair.Key.Title
+                    </div>
+                    <div class="article__row">
+                        @foreach (var item in subCategoryPair.Value)
+                        {
+                            @await Html.PartialAsync("CardWithFormBigPartial", item)
+                        }
+                    </div>
+                }
+            </article>
+        }
+    </div>
+</div>

@@ -18,7 +18,14 @@ public class HomeController(DataManager dataManager) : Controller
         return View(dataManager);
     }
 
-    [HttpPost]
+    //[HttpPost]
+    //public IActionResult Read(string table)
+    //{
+    //    ViewBag.SelectedTable = table;
+    //    return View(dataManager);
+    //}
+
+    [HttpGet]
     public IActionResult Read(string table)
     {
         ViewBag.SelectedTable = table;

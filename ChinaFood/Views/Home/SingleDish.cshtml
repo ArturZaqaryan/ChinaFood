@@ -1,0 +1,40 @@
+﻿@model DishModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="dish-details">
+    <h1 class="dish-title">@Model.Title</h1>
+
+    @if (!string.IsNullOrEmpty(Model.TitleImagePath))
+    {
+        <div class="dish-image">
+            <img src="@Model.TitleImagePath" alt="@Model.Title" class="img-fluid" />
+        </div>
+    }
+
+    <div class="dish-info">
+        <h2 class="dish-price">Price: @Model.Price.ToString("C")</h2>
+        <p class="dish-subtitle"><strong>@Model.Subtitle</strong></p>
+        <p class="dish-description">@Model.Text</p>
+        <p class="dish-type">Type: <span>@Model.DishType</span></p>
+        <p class="dish-meta">
+            <small>Added on: @Model.DateAdded.ToString("dd MMMM yyyy")</small>
+        </p>
+    </div>
+
+    <form asp-controller="Cart" asp-action="AddToCart" method="post" class="add-to-cart-form">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="Title" value="@Model.Title" />
+        <input type="hidden" name="Price" value="@Model.Price" />
+        <input type="hidden" name="DishType" value="@Model.DishType" />
+        <input type="hidden" name="SubCategoryId" value="@Model.SubCategoryId" />
+
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" class="form-control" min="1" value="1" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add to Cart</button>
+    </form>
+</div>

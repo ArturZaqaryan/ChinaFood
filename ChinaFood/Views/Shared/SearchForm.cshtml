@@ -1,39 +1,46 @@
 ﻿@using ChinaFood
+@using ChinaFood.Domain.Entities
 @using Microsoft.AspNetCore.Mvc.Localization
 @inject IViewLocalizer Localizer
-@* @inject IHtmlLocalizer<CommonResources> SharedLocalizer *@
+@inject IHtmlLocalizer<CommonResources> SharedLocalizer
 
 <form asp-controller="Search" asp-action="Search" class="poster__form form" method="get">
     <div class="form__row">
         <div class="form__item-column">
-            <label for="hotels_name">Input hotels name or city</label>
-            <input type="text" id="hotels_name" name="destination" placeholder="Hotels name or city">
+            <label for="hotels_name">@SharedLocalizer["InputDishName"]</label>
+            <input type="text" id="hotels_name" name="destination" placeholder="@SharedLocalizer["DishName"]">
         </div>
 
         <div class="form__item-column">
-            <label for="arrival_date">Arrival date</label>
-            <input type="date" id="arrival_date" name="arrival">
+            <label for="dishType">@SharedLocalizer["DishType"]</label>
+            <select id="dishType" name="dishType" class="form__select">
+                <option value="">@SharedLocalizer["SelectDishType"]</option>
+                <option value="China">@SharedLocalizer["China"]</option>
+                <option value="Japan">@SharedLocalizer["Japan"]</option>
+                <option value="Drink">@SharedLocalizer["Drink"]</option>
+            </select>
         </div>
 
         <div class="form__item-column">
-            <label for="departure_date">Date of departure</label>
-            <input type="date" id="departure_date" name="departure">
+            <label for="subCategory">@SharedLocalizer["SubCategory"]</label>
+            <select id="subCategory" name="subCategory" class="form__select">
+                <option value="">@SharedLocalizer["SelectSubCategory"]</option>
+                @foreach (var subCategory in ViewBag.SubCategories)
+                {
+                    <option value="@subCategory.Id">@subCategory.Title</option>
+                }
+            </select>
         </div>
 
         <div class="form__item-column">
-            <label for="number_of_children">Children</label>
-            <input type="number" id="number_of_children" name="children" class="form__number" min="0" max="6">
+            <label for="minPrice">@SharedLocalizer["MinPrice"]</label>
+            <input type="number" id="minPrice" name="minPrice" class="form__number" min="0">
         </div>
 
         <div class="form__item-column">
-            <label for="number_of_adults">Adults</label>
-            <input type="number" id="number_of_adults" name="adults" class="form__number" value="1" min="1" max="9">
+            <label for="maxPrice">@SharedLocalizer["MaxPrice"]</label>
+            <input type="number" id="maxPrice" name="maxPrice" class="form__number">
         </div>
-
-        <div class="form__item-column">
-            <label for="number_of_adults">Rooms</label>
-            <input type="number" id="number_of_rooms" name="rooms" class="form__number" value="1" min="1" max="9">
-        </div>
-        <button type="submit" class="submit">Check prices</button>
-</div>
+        <button type="submit" class="submit">@SharedLocalizer["Search"]</button>
+    </div>
 </form>

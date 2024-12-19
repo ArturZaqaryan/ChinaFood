@@ -10,5 +10,7 @@
     {
         public decimal Price { get; set; }
         public DishType DishType { get; set; }
+        public Guid SubCategoryId { get; set; } // FK для подкатегории
+        public virtual SubCategory SubCategory { get; set; } // Навигационное свойство
     }
 }

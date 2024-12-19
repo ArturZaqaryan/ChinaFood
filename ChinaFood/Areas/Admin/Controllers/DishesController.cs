@@ -1,6 +1,7 @@
 ﻿using ChinaFood.Domain;
 using ChinaFood.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ChinaFood.Areas.Admin.Controllers;
 
@@ -15,14 +16,14 @@ public class DishesController(DataManager dataManager, IWebHostEnvironment hosti
     public IActionResult Edit(Guid id)
     {
         var entity = id == default ? new Dish() : dataManager.Dishes.GetById(id);
-        //ViewBag.Countries = dataManager.Countries.GetAll().Select(r => new SelectListItem { Value = r.Id.ToString(), Text = r.TitleEn, Selected = entity.CountryId == r.Id }).ToList();
+        ViewBag.SubCategories = dataManager.SubCategories.GetAll().Select(r => new SelectListItem { Value = r.Id.ToString(), Text = r.TitleEn, Selected = entity.SubCategoryId == r.Id }).ToList();
         return View(entity);
     }
 
     // POST: CitiesController/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Edit(Dish model, IFormFile titleImageFile, string defaultImagePath)
+    public IActionResult Edit(Dish model, IFormFile titleImageFile, string defaultImagePath, string subCategory)
     {
         if (ModelState.IsValid)
         {
@@ -50,10 +51,19 @@ public class DishesController(DataManager dataManager, IWebHostEnvironment hosti
                 model.TitleImagePath = defaultImagePath;
             }
 
-            //model.CountryId = Guid.Parse(country);
+            model.SubCategoryId = Guid.Parse(subCategory);
+
+            // Проверяем, что подкатегория соответствует категории
+            var subCategoryEntity = dataManager.SubCategories.GetById(model.SubCategoryId);
+
+            if (subCategoryEntity == null || subCategoryEntity.DishType != model.DishType)
+            {
+                ModelState.AddModelError("", "Invalid subcategory for the selected dish type.");
+                return View(model);
+            }
 
             dataManager.Dishes.Save(model);
-            return RedirectToAction("Read", "Home");
+            return RedirectToAction($"Read", "Home");
         }
         return View(model);
     }

@@ -15,6 +15,9 @@ public class OrderModel : BaseModel
     [Required]
     [DisplayName("Customer Email")]
     public string CustomerEmail { get; set; }
+    [Required]
+    [DisplayName("Customer Address")]
+    public string CustomerAddress { get; set; }
 
     [Required]
     [DisplayName("Order Details")]
@@ -23,4 +26,12 @@ public class OrderModel : BaseModel
     [Required]
     [DisplayName("Order Date")]
     public DateTime OrderDate { get; set; }
+
+    [Required]
+    [DisplayName("Total amount")]
+    public decimal TotalAmount { get; set; }
+
+    [Required]
+    [DisplayName("Order items")]
+    public List<CartItem> Items { get; set; }
 }

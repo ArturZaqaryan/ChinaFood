@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<CommonResources> SharedLocalizer
+
+<form asp-controller="Home" asp-action="SingleDish" class="poster__form form card__form" method="post">
+    <!-- Hidden inputs to send product details -->
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <div class="form__row">
+        <button class="submit">View Dish Info</button>
+    </div>
+</form>

@@ -8,6 +8,8 @@ namespace ChinaFood.Domain.Repositories.Abstract
     {
         IQueryable<Dish> GetAll();
         IQueryable<DishModel> GetAllByCulture(CultureInfo culture);
+        IQueryable<Dish> GetAllByType(DishType type);
+        IQueryable<DishModel> GetAllByTypeAndCulture(CultureInfo culture, DishType type);
         Dish GetById(Guid id);
         DishModel GetByIdAndCulture(Guid id, CultureInfo culture);
         void Save(Dish entity);
