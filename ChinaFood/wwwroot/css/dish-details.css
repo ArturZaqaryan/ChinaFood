@@ -1,0 +1,129 @@
+﻿/* Общий контейнер */
+.dish-details {
+    max-width: 800px;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок блюда */
+.dish-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Изображение блюда */
+/*.dish-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+    .dish-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }*/
+
+
+/* Контейнер для изображения */
+.dish-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+    /* Стили для изображения */
+    .dish-image img {
+        width: 100%; /* Масштабирование по ширине контейнера */
+        max-width: 400px; /* Максимальная ширина */
+        height: 300px; /* Фиксированная высота */
+        object-fit: cover; /* Центрирование и обрезка */
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+/* Информация о блюде */
+.dish-info {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.dish-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #e67e22;
+    margin-bottom: 10px;
+}
+
+.dish-subtitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dish-description {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.dish-type {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.dish-meta {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 10px;
+}
+
+/* Форма добавления в корзину */
+.add-to-cart-form {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .add-to-cart-form label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .add-to-cart-form .form-control {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 1rem;
+    }
+
+    .add-to-cart-form button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: #5c0f0f;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .add-to-cart-form button:hover {
+            background-color: #751111;
+        }

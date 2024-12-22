@@ -6,15 +6,15 @@
 @model DishModel
 
 <div class="article__card card" style="background-image: url(../@Model?.TitleImagePath);">
-    @await Html.PartialAsync("AddToCartForm")
-    @await Html.PartialAsync("SingleDishForm")
+    @await Html.PartialAsync("Forms/AddToCartForm")
+    @await Html.PartialAsync("Forms/SingleDishForm")
     <div class="card__row card" style="background-image: url(../@Model?.TitleImagePath);">
         <div class="card__name">
             <p>@Model?.Title</p>
             <p>@Model?.Subtitle</p>
         </div>
         <div class="card__price">
-            @Model?.Price.ToString("C");
+            @Model?.Price.ToString("C")
         </div>
     </div>
 </div>

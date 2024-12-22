@@ -2,7 +2,7 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<CommonResources> SharedLocalizer
 
-<form asp-controller="Home" asp-action="SingleDish" class="poster__form form card__form" method="post">
+<form asp-controller="Home" asp-action="SingleDish" class="poster__form form card__form" method="get">
     <!-- Hidden inputs to send product details -->
     <input type="hidden" name="Id" value="@Model.Id" />
 

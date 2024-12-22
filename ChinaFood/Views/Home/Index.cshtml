@@ -6,191 +6,180 @@
     ViewData["Title"] = "Home Page";
 }
 <body>
-    <div class="content">
-        <div class="container">
-            <div class="content__column">
+    <div class="content__column">
                 
-                <article class="article">
-                    <div class="article__title title">
-                        <h3><a href="/Search/Search?destination=&dishType=China&minPrice=&maxPrice=">@SharedLocalizer["ChineseDishes"]</a></h3>
-                    </div>
-                    <div class="article__row">
-                        @for (int i = 0; i < 6; i++)
-                        {
-                            if (i == 0 || i == 5)
-                            {
-                                @await Html.PartialAsync("CardWithFormBigPartial", (DishModel)ViewBag.ChinesseDishes[i]);
-                            }
-                            else
-                            {
-                                @await Html.PartialAsync("CardWithFormPartial", (DishModel)ViewBag.ChinesseDishes[i]);
-                            }
-                        }
-                    </div>
-                </article>
-
-                <article class="article">
-                    <div class="article__title title">
-                        <h3><a href="/Search/Search?destination=&dishType=Drink&minPrice=&maxPrice=">@SharedLocalizer["Drinks"]</a></h3>
-                    </div>
-                    <div id="js-carousel-polaroid-5" class="article__row article__row_polaroid owl-carousel polaroid-carousel_5">
-                        @foreach (var drink in ViewBag.Drinks)
-                        {
-                            @await Html.PartialAsync("PolaroidPartial", (DishModel)drink)
-                            ;
-                        }
-                    </div>
-                    <div id="js-carousel-polaroid-4" class="article__row article__row_polaroid owl-carousel polaroid-carousel_4">
-                        @foreach (var drink in ViewBag.Drinks)
-                        {
-                            @await Html.PartialAsync("PolaroidPartial", (DishModel)drink)
-                            ;
-                        }
-                    </div>
-                    <div id="js-carousel-polaroid-3" class="article__row article__row_polaroid owl-carousel polaroid-carousel_3">
-                        @foreach (var drink in ViewBag.Drinks)
-                        {
-                            @await Html.PartialAsync("PolaroidPartial", (DishModel)drink)
-                            ;
-                        }
-                    </div>
-                    <div id="js-carousel-polaroid-2" class="article__row article__row_polaroid owl-carousel polaroid-carousel_2">
-                        @foreach (var drink in ViewBag.Drinks)
-                        {
-                            @await Html.PartialAsync("PolaroidPartial", (DishModel)drink)
-                            ;
-                        }
-                    </div>
-                    <div id="js-carousel-polaroid-1" class="article__row article__row_polaroid owl-carousel polaroid-carousel_1">
-                        @foreach (var drink in ViewBag.Drinks)
-                        {
-                            @await Html.PartialAsync("PolaroidPartial", (DishModel)drink)
-                            ;
-                        }
-                    </div>
-                </article>
-
-                <article class="article">
-                    <div class="article__title title">
-                        <h3><a href="/Search/Search?destination=&dishType=Japan&minPrice=&maxPrice=">@SharedLocalizer["JapaneseDishes"]</a></h3>
-                    </div>
-                    <div class="article__row">
-                        @for (int i = 0; i < 6; i++)
-                        {
-                            if (i == 2 || i == 3)
-                            {
-                                @await Html.PartialAsync("CardWithFormBigPartial", (DishModel)ViewBag.JapanesseDishes[i])
-                                ;
-                            }
-                            else
-                            {
-                                @await Html.PartialAsync("CardWithFormPartial", (DishModel)ViewBag.JapanesseDishes[i])
-                                ;
-                            }
-                        }
-                    </div>
-                </article>
-
-                <article class="article">
-                    <div class="article__title title">
-                        <h3>@SharedLocalizer["ChinaTownTitle"]</h3>
-                    </div>
-                    <div class="article__subtitle">
-                        <img src="~/images/ordering.jpg" alt="">
-                        <p>@SharedLocalizer["ChinaTownDesc"]</p>
-                    </div>
-                </article>
-
-                <article class="article article_cream">
-                    <div class="article__row">
-                        <div class="article__text-block article__text-block_piggy">
-                            <div class="article__title_2 title_2">
-                                <p>@SharedLocalizer["FastAndConvenientDeliveryTitle"]</p>
-                            </div>
-                            <div class="text-block__description">
-                                <p>@SharedLocalizer["FastAndConvenientDeliveryDesc"]</p>
-                            </div>
-                        </div>
-                        <div class="article__text-block article__text-block_key">
-                            <div class="article__title_2 title_2">
-                                <p>@SharedLocalizer["WideSelectionOfTraditionalDishesTitle"]</p>
-                            </div>
-                            <div class="text-block__description">
-                                <p>@SharedLocalizer["WideSelectionOfTraditionalDishesDesc"]</p>
-                            </div>
-                        </div>
-                        <div class="article__text-block article__text-block_bars">
-                            <div class="article__title_2 title_2">
-                                <p>@SharedLocalizer["FreshIngredientsAndAuthenticRecipesTitle"]</p>
-                            </div>
-                            <div class="text-block__description">
-                                <p>@SharedLocalizer["FreshIngredientsAndAuthenticRecipesDesc"]</p>
-                            </div>
-                        </div>
-                        <div class="article__text-block article__text-block_phone">
-                            <div class="article__title_2 title_2">
-                                <p>@SharedLocalizer["EasyOrderingProcessTitle"]</p>
-                            </div>
-                            <div class="text-block__description">
-                                <p>@SharedLocalizer["EasyOrderingProcessDesc"]</p>
-                            </div>
-                        </div>
-                        <div class="article__text-block article__text-block_message">
-                            <div class="article__title_2 title_2">
-                                <p>@SharedLocalizer["SpecialOffersAndDiscountsTitle"]</p>
-                            </div>
-                            <div class="text-block__description">
-                                <p>@SharedLocalizer["SpecialOffersAndDiscountsDesc"]</p>
-                            </div>
-                        </div>
-                        <div class="article__text-block article__text-block_mobile">
-                            <div class="article__title_2 title_2">
-                                <p>@SharedLocalizer["CustomerSupportAndQualityAssuranceTitle"]</p>
-                            </div>
-                            <div class="description">
-                                <p>@SharedLocalizer["CustomerSupportAndQualityAssuranceDesc"]</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="article__logo logo logo_centered">
-                        <a href="" class="logo__link">@SharedLocalizer["CompName"]</a>
-                    </div>
-                </article>
-
-                @* <article class="article">
-                    <div class="article__title title">
-                        <h3>Latest reviews</h3>
-                    </div>
-                    <div id="js-carousel-review" class="article__review review owl-carousel">
-                        @foreach (var review in Model.Reviews.GetAll())
-                        {
-                            <div class="review__inner">
-                                @{
-                                    string path;
-                                    User currUser = Model.UserManager.FindByIdAsync(review.UserId.ToString()).Result;
-                                    if (currUser.Avatar != null && currUser.Avatar != "")
-                                    {
-                                        path = currUser.Avatar;
-                                    }
-                                    else
-                                    {
-                                        path = "images/icons/maleIcon.jpg";
-                                    }
-                                }
-                                <img src="@path" alt="" class="review__avatar">
-                                <div class="review__comment">
-                                    <div class="title_2">
-                                        <p>@currUser.UserName</p>
-                                    </div>
-                                    <div>
-                                        <p>@review.Text</p>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </article> *@
+        <article class="article">
+            <div class="article__title title">
+                <h3><a href="/Search/Search?destination=&dishType=China&minPrice=&maxPrice=">@SharedLocalizer["ChineseDishes"]</a></h3>
             </div>
-        </div>
+            <div class="article__row">
+                @for (int i = 0; i < 6; i++)
+                {
+                    if (i == 0 || i == 5)
+                    {
+                        @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", (DishModel)ViewBag.ChinesseDishes[i])
+                    }
+                    else
+                    {
+                        @await Html.PartialAsync("PageBlocks/CardWithFormPartial", (DishModel)ViewBag.ChinesseDishes[i])
+                    }
+                }
+            </div>
+        </article>
+
+        <article class="article">
+            <div class="article__title title">
+                <h3><a href="/Search/Search?destination=&dishType=Drink&minPrice=&maxPrice=">@SharedLocalizer["Drinks"]</a></h3>
+            </div>
+            <div id="js-carousel-polaroid-5" class="article__row article__row_polaroid owl-carousel polaroid-carousel_5">
+                @foreach (var drink in ViewBag.Drinks)
+                {
+                    @await Html.PartialAsync("PageBlocks/PolaroidPartial", (DishModel)drink)
+                }
+            </div>
+            <div id="js-carousel-polaroid-4" class="article__row article__row_polaroid owl-carousel polaroid-carousel_4">
+                @foreach (var drink in ViewBag.Drinks)
+                {
+                    @await Html.PartialAsync("PageBlocks/PolaroidPartial", (DishModel)drink)
+                }
+            </div>
+            <div id="js-carousel-polaroid-3" class="article__row article__row_polaroid owl-carousel polaroid-carousel_3">
+                @foreach (var drink in ViewBag.Drinks)
+                {
+                    @await Html.PartialAsync("PageBlocks/PolaroidPartial", (DishModel)drink)
+                }
+            </div>
+            <div id="js-carousel-polaroid-2" class="article__row article__row_polaroid owl-carousel polaroid-carousel_2">
+                @foreach (var drink in ViewBag.Drinks)
+                {
+                    @await Html.PartialAsync("PageBlocks/PolaroidPartial", (DishModel)drink)
+                }
+            </div>
+            <div id="js-carousel-polaroid-1" class="article__row article__row_polaroid owl-carousel polaroid-carousel_1">
+                @foreach (var drink in ViewBag.Drinks)
+                {
+                    @await Html.PartialAsync("PageBlocks/PolaroidPartial", (DishModel)drink)
+                }
+            </div>
+        </article>
+
+        <article class="article">
+            <div class="article__title title">
+                <h3><a href="/Search/Search?destination=&dishType=Japan&minPrice=&maxPrice=">@SharedLocalizer["JapaneseDishes"]</a></h3>
+            </div>
+            <div class="article__row">
+                @for (int i = 0; i < 6; i++)
+                {
+                    if (i == 2 || i == 3)
+                    {
+                        @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", (DishModel)ViewBag.JapanesseDishes[i])
+                    }
+                    else
+                    {
+                        @await Html.PartialAsync("PageBlocks/CardWithFormPartial", (DishModel)ViewBag.JapanesseDishes[i])
+                    }
+                }
+            </div>
+        </article>
+
+        <article class="article">
+            <div class="article__title title">
+                <h3>@SharedLocalizer["ChinaTownTitle"]</h3>
+            </div>
+            <div class="article__subtitle">
+                <img src="~/images/ordering.jpg" alt="">
+                <p>@SharedLocalizer["ChinaTownDesc"]</p>
+            </div>
+        </article>
+
+        <article class="article article_cream">
+            <div class="article__row">
+                <div class="article__text-block article__text-block_piggy">
+                    <div class="article__title_2 title_2">
+                        <p>@SharedLocalizer["FastAndConvenientDeliveryTitle"]</p>
+                    </div>
+                    <div class="text-block__description">
+                        <p>@SharedLocalizer["FastAndConvenientDeliveryDesc"]</p>
+                    </div>
+                </div>
+                <div class="article__text-block article__text-block_key">
+                    <div class="article__title_2 title_2">
+                        <p>@SharedLocalizer["WideSelectionOfTraditionalDishesTitle"]</p>
+                    </div>
+                    <div class="text-block__description">
+                        <p>@SharedLocalizer["WideSelectionOfTraditionalDishesDesc"]</p>
+                    </div>
+                </div>
+                <div class="article__text-block article__text-block_bars">
+                    <div class="article__title_2 title_2">
+                        <p>@SharedLocalizer["FreshIngredientsAndAuthenticRecipesTitle"]</p>
+                    </div>
+                    <div class="text-block__description">
+                        <p>@SharedLocalizer["FreshIngredientsAndAuthenticRecipesDesc"]</p>
+                    </div>
+                </div>
+                <div class="article__text-block article__text-block_phone">
+                    <div class="article__title_2 title_2">
+                        <p>@SharedLocalizer["EasyOrderingProcessTitle"]</p>
+                    </div>
+                    <div class="text-block__description">
+                        <p>@SharedLocalizer["EasyOrderingProcessDesc"]</p>
+                    </div>
+                </div>
+                <div class="article__text-block article__text-block_message">
+                    <div class="article__title_2 title_2">
+                        <p>@SharedLocalizer["SpecialOffersAndDiscountsTitle"]</p>
+                    </div>
+                    <div class="text-block__description">
+                        <p>@SharedLocalizer["SpecialOffersAndDiscountsDesc"]</p>
+                    </div>
+                </div>
+                <div class="article__text-block article__text-block_mobile">
+                    <div class="article__title_2 title_2">
+                        <p>@SharedLocalizer["CustomerSupportAndQualityAssuranceTitle"]</p>
+                    </div>
+                    <div class="description">
+                        <p>@SharedLocalizer["CustomerSupportAndQualityAssuranceDesc"]</p>
+                    </div>
+                </div>
+            </div>
+            <div class="article__logo logo logo_centered">
+                <a href="" class="logo__link">@SharedLocalizer["CompName"]</a>
+            </div>
+        </article>
+
+        @* <article class="article">
+            <div class="article__title title">
+                <h3>Latest reviews</h3>
+            </div>
+            <div id="js-carousel-review" class="article__review review owl-carousel">
+                @foreach (var review in Model.Reviews.GetAll())
+                {
+                    <div class="review__inner">
+                        @{
+                            string path;
+                            User currUser = Model.UserManager.FindByIdAsync(review.UserId.ToString()).Result;
+                            if (currUser.Avatar != null && currUser.Avatar != "")
+                            {
+                                path = currUser.Avatar;
+                            }
+                            else
+                            {
+                                path = "images/icons/maleIcon.jpg";
+                            }
+                        }
+                        <img src="@path" alt="" class="review__avatar">
+                        <div class="review__comment">
+                            <div class="title_2">
+                                <p>@currUser.UserName</p>
+                            </div>
+                            <div>
+                                <p>@review.Text</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </article> *@
     </div>
 </body>

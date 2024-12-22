@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Html.PartialAsync("PageParts/MetatagsPartial")
+    @await Html.PartialAsync("PageParts/Css/CssPartial")
+    @await Html.PartialAsync("PageParts/FontsPartial")
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ChinaFood</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ChinaFood.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/js/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/js/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("PageParts/HeaderPartial")
+        <div class="content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+        @await Html.PartialAsync("PageParts/FooterPartial")
+    </div>
+    @await Html.PartialAsync("PageParts/Scripts/JQueryScriptsPartial")
+    @await Html.PartialAsync("PageParts/Scripts/CartPreparingScriptsPartial")
+    @await Html.PartialAsync("PageParts/Scripts/BurgerMenuScriptsPartial")
+    @await Html.PartialAsync("PageParts/Scripts/CartManagmentScriptsPartial")
+</body>
+</html>
+

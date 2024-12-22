@@ -56,7 +56,7 @@ public class HomeController(ILogger<HomeController> logger, DataManager dataMana
         return LocalRedirect(returnUrl);
     }
 
-    [HttpPost]
+    [HttpGet]
     public IActionResult SingleDish(Guid id)
     {
         var requestCultureFeature = HttpContext.Features.Get<IRequestCultureFeature>();

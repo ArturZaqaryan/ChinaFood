@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Html.PartialAsync("PageParts/MetatagsPartial")
+    @await Html.PartialAsync("PageParts/Css/CssPartial")
+    @await Html.PartialAsync("PageParts/Css/DishDetailsCssPartial")
+    @await Html.PartialAsync("PageParts/FontsPartial")
+</head>
+<body>
+    <div class="wrapper">
+        @await Html.PartialAsync("PageParts/HeaderPartial")
+        <div class="content">
+            <div class="container">
+                @RenderBody()
+            </div>
+        </div>
+        @await Html.PartialAsync("PageParts/FooterPartial")
+    </div>
+    @await Html.PartialAsync("PageParts/Scripts/JQueryScriptsPartial")
+    @await Html.PartialAsync("PageParts/Scripts/CartPreparingScriptsPartial")
+    @await Html.PartialAsync("PageParts/Scripts/BurgerMenuScriptsPartial")
+</body>
+</html>
+

@@ -684,6 +684,23 @@ button {
     margin-left: 5px;
 }
 
+/*For form on polaroid*/
+
+.article__polaroid {
+    margin: 10px;
+}
+
+    .article__polaroid:hover .card__row {
+        display: none;
+        opacity: 40%;
+        transition: .5s;
+    }
+
+    .article__polaroid:hover .card__form {
+        display: inline;
+    }
+/*__________________________________________________*/
+
 .polaroid:hover {
     border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
     box-shadow: 10px 10px rgba(0,0,0,.25);

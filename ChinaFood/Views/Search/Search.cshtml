@@ -3,43 +3,47 @@
 @inject IViewLocalizer Localizer
 @inject IHtmlLocalizer<CommonResources> SharedLocalizer
 @model Dictionary<DishType, Dictionary<SubCategoryModel, List<DishModel>>>
-
-<div class="container search-results">
+@{
+    Layout = "Layouts/_LayoutWithoutPoster";
+}
+<div class="content">
+    <div class="container search-results">
     <h2 class="title">Search Results</h2>
     <div class="content__column">
-        @foreach(var dishPair in Model)
-        {
-            <article class="article">
-                <div class="article__title title">
-                    <h3>@{
-                            switch (dishPair.Key)
-                            {
-                                case DishType.China:
-                                    @SharedLocalizer["ChineseDishes"]
-                                    break;
-                                case DishType.Japan:
-                                    @SharedLocalizer["JapanesseDishes"]
-                                    break;
-                                case DishType.Drink:
-                                    @SharedLocalizer["Drinks"]
-                                    break;
-                            }  
+            @foreach (var dishPair in Model)
+            {
+                <article class="article">
+                    <div class="article__title title">
+                        <h3>@{
+                                switch (dishPair.Key)
+                                {
+                                    case DishType.China:
+                                        @SharedLocalizer["ChineseDishes"]
+                                        break;
+                                    case DishType.Japan:
+                                        @SharedLocalizer["JapanesseDishes"]
+                                        break;
+                                    case DishType.Drink:
+                                        @SharedLocalizer["Drinks"]
+                                        break;
+                                }  
                             }
-                    </h3>
-                </div>
-                @foreach (var subCategoryPair in dishPair.Value)
-                {
-                    <div class="article__title title_left">
-                        @subCategoryPair.Key.Title
+                        </h3>
                     </div>
-                    <div class="article__row">
-                        @foreach (var item in subCategoryPair.Value)
-                        {
-                            @await Html.PartialAsync("CardWithFormBigPartial", item)
-                        }
-                    </div>
-                }
-            </article>
-        }
+                    @foreach (var subCategoryPair in dishPair.Value)
+                    {
+                            <div class="article__title title_left">
+                            @subCategoryPair.Key.Title
+                            </div>
+                            <div class="article__row">
+                            @foreach (var item in subCategoryPair.Value)
+                            {
+                                @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", item)
+                            }
+                            </div>
+                    }
+                </article>
+            }
     </div>
+</div>
 </div>

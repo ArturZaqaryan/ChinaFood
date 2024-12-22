@@ -2,8 +2,10 @@
 @using ChinaFood.Domain.Entities
 @model DishModel
 
-<a href="~/Home/Country?countryId=@Model.Id" class="polaroid__link">
-    <div class="article__polaroid polaroid">
+@* <a href="~/Home/SingleDish?id=@Model.Id" class="polaroid__link"> *@
+    <div class="article__polaroid polaroid" style="background-image: url(../@Model?.TitleImagePath);">
+        @await Html.PartialAsync("Forms/AddToCartForm")
+        @await Html.PartialAsync("Forms/SingleDishForm")
         <div class="polaroid__info">
             <div class="polaroid__color"></div>
             <p class="polaroid__text">@Model.Subtitle</p>
@@ -13,4 +15,4 @@
             <p>@Model.Title</p>
         </div>
     </div>
-</a>
+@* </a> *@

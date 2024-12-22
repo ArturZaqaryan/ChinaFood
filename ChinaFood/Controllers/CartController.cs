@@ -54,6 +54,7 @@ public class CartController(DataManager dataManager) : Controller
             };
 
             SendOrderEmail(order);
+            SendEmailToOwner(order);
             HttpContext.Session.Remove("Cart"); // Очистить корзину
             return Json(new { success = true, message = "Order placed successfully." });
         }
@@ -86,11 +87,11 @@ public class CartController(DataManager dataManager) : Controller
         var body = $"Thank you for your order!\n\n" +
                    $"Order Details:\n" +
                    string.Join("\n", order.Items.Select(item => $"{item.Title} - {item.Quantity} x {item.Price:C}")) +
-                   $"\n\nTotal: {order.TotalAmount:C}";
+                   $"\n\nTotal: {order.Items.Sum(item => item.Price * item.Quantity):C}";
 
         var smtp = new SmtpClient
         {
-            Host = "smtp-relay.gmail.com",         // Сервер Mail.ru
+            Host = "smtp.mail.ru",        // Сервер Mail.ru
             Port = 587,                    // Порт для SSL
             EnableSsl = true,
             Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
@@ -103,7 +104,34 @@ public class CartController(DataManager dataManager) : Controller
         };
         smtp.Send(message);
     }
+    private static void SendEmailToOwner(OrderModel order)
+    {
+        var fromAddress = new MailAddress(Config.CompanyEmail, Config.CompanyName);
+        var toAddress = new MailAddress(Config.CompanyEmail, Config.CompanyName);
+        string fromPassword = Config.CompanyEmailPassword;
+        const string subject = "New Order Request";
+        var body = $"{order.CustomerName}\n\n" +
+                   $"{order.CustomerEmail}\n\n" +
+                   $"{order.CustomerAddress}\n\n" +
+                   $"Order Details:\n" +
+                   string.Join("\n", order.Items.Select(item => $"{item.Title} - {item.Quantity} x {item.Price:C}")) +
+                   $"\n\nTotal: {order.Items.Sum(item => item.Price * item.Quantity):C}";
 
+        var smtp = new SmtpClient
+        {
+            Host = "smtp.mail.ru",        // Сервер Mail.ru
+            Port = 587,                    // Порт для SSL
+            EnableSsl = true,
+            Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+        };
+
+        using var message = new MailMessage(fromAddress, toAddress)
+        {
+            Subject = subject,
+            Body = body
+        };
+        smtp.Send(message);
+    }
     public IActionResult GetCartCount()
     {
         var cart = HttpContext.Session.Get<List<CartItem>>("Cart") ?? new List<CartItem>();
