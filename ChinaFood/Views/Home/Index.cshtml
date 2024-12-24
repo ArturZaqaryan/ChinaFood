@@ -61,25 +61,40 @@
                     @await Html.PartialAsync("PageBlocks/PolaroidPartial", (DishModel)drink)
                 }
             </div>
+            <!-- Подсказка -->
+            <div class="carousel-hint">
+                <span>@SharedLocalizer["SwipeToBrowse"]</span>
+                <div class="hint-arrow"></div>
+            </div>
         </article>
 
         <article class="article">
             <div class="article__title title">
                 <h3><a href="/Search/Search?destination=&dishType=Japan&minPrice=&maxPrice=">@SharedLocalizer["JapaneseDishes"]</a></h3>
             </div>
-            <div class="article__row">
-                @for (int i = 0; i < 6; i++)
-                {
-                    if (i == 2 || i == 3)
+            @for (int j = 0; j < ViewBag.JapanesseDishes.Count; j += 6)
+            {
+                var cssClass = j < 1 ? "visible" : "hidden";
+                <div class="article__row @cssClass" id="dishes-container">
+                    @for (int i = j; i < j + 6 && i < ViewBag.JapanesseDishes.Count; i++)
                     {
-                        @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", (DishModel)ViewBag.JapanesseDishes[i])
+                        if (i == 0 || i == 5)
+                        {
+                            @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", (DishModel)ViewBag.JapanesseDishes[i])
+                        }
+                        else
+                        {
+                            @await Html.PartialAsync("PageBlocks/CardWithFormPartial", (DishModel)ViewBag.JapanesseDishes[i])
+                        }
                     }
-                    else
-                    {
-                        @await Html.PartialAsync("PageBlocks/CardWithFormPartial", (DishModel)ViewBag.JapanesseDishes[i])
-                    }
-                }
-            </div>
+                </div>
+            }
+            @if (ViewBag.JapanesseDishes.Count > 6)
+            {
+                <div class="article__footer">
+                    <button id="show-more" class="show-more">@SharedLocalizer["ShowMore"]</button>
+                </div>
+            }
         </article>
 
         <article class="article">

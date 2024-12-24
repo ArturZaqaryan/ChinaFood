@@ -663,6 +663,54 @@ button {
     box-shadow: 20px 20px rgba(0,0,0,.15);
 }
 
+/*Carousel logos*/
+
+.carousel-hint {
+    top: 10%;
+    right: 5%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    animation: fade-in-out 3s infinite;
+}
+
+.hint-arrow {
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(-45deg);
+    animation: slide-arrow 1.5s infinite;
+}
+
+@keyframes fade-in-out {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-arrow {
+    0%, 100% {
+        transform: rotate(-45deg) translateX(0);
+    }
+
+    50% {
+        transform: rotate(-45deg) translateX(5px);
+    }
+}
+
 .polaroid-carousel_4 {
     display: none!important;
 }
@@ -953,6 +1001,16 @@ button {
             opacity: 60%;
         }
 
+
+/*Show more*/
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: flex;
+}
+
 @media (max-width: 1200px) {
     .container {
         max-width: 970px;
@@ -1106,7 +1164,7 @@ button {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgb(2, 195, 195);
+        background-color: #751717;
         z-index: 3;
         padding: 100px 0px 10px 10px;
         transition: all 0.3s ease 0s;
@@ -1129,6 +1187,10 @@ button {
         }
 
     .nav {
+        display: none;
+    }
+    
+    #nav {
         display: none;
     }
 
@@ -1231,6 +1293,8 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: fit-content;
+    margin: 0px auto;
 }
 
     .register-form input,
@@ -1271,6 +1335,11 @@ button {
 }
 
 h3 a {
+    all: unset;
+    cursor: pointer;
+}
+
+.title_left a {
     all: unset;
     cursor: pointer;
 }

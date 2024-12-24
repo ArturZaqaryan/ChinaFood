@@ -15,6 +15,10 @@ public class OrderModel : BaseModel
     [Required]
     [DisplayName("Customer Email")]
     public string CustomerEmail { get; set; }
+    
+    [Required]
+    [DisplayName("Customer Phone")]
+    public string CustomerPhone { get; set; }
     [Required]
     [DisplayName("Customer Address")]
     public string CustomerAddress { get; set; }

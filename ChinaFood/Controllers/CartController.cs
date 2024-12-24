@@ -34,7 +34,7 @@ public class CartController(DataManager dataManager) : Controller
     }
 
     [HttpPost]
-    public IActionResult Checkout(string customerName, string email, string address)
+    public IActionResult Checkout(string name, string email, string phone, string address)
     {
         var cart = HttpContext.Session.Get<List<CartItem>>("Cart");
         if (cart == null || cart.Count == 0)
@@ -49,7 +49,8 @@ public class CartController(DataManager dataManager) : Controller
             {
                 CustomerEmail = email,
                 Items = cart,
-                CustomerName = customerName,
+                CustomerName = name,
+                CustomerPhone = phone,
                 CustomerAddress = address
             };
 
@@ -83,11 +84,11 @@ public class CartController(DataManager dataManager) : Controller
         var fromAddress = new MailAddress(Config.CompanyEmail, Config.CompanyName);
         var toAddress = new MailAddress(order.CustomerEmail);
         string fromPassword = Config.CompanyEmailPassword;
-        const string subject = "Your Order Confirmation";
-        var body = $"Thank you for your order!\n\n" +
-                   $"Order Details:\n" +
-                   string.Join("\n", order.Items.Select(item => $"{item.Title} - {item.Quantity} x {item.Price:C}")) +
-                   $"\n\nTotal: {order.Items.Sum(item => item.Price * item.Quantity):C}";
+        const string subject = "Ձեր պատվերն ընդունված է";
+        var body = $"Շնորհակալություն ենք հայտնում մեր ծառայություններից օգտվելու համար!\n\n" +
+                   $"Պատվերի մանրամասները:\n" +
+                   string.Join("\n", order.Items.Select(item => $"{item.Title} - {item.Quantity} x {item.Price}֏")) +
+                   $"\n\nԸնդհանուր: {order.Items.Sum(item => item.Price * item.Quantity)}֏";
 
         var smtp = new SmtpClient
         {
@@ -109,13 +110,14 @@ public class CartController(DataManager dataManager) : Controller
         var fromAddress = new MailAddress(Config.CompanyEmail, Config.CompanyName);
         var toAddress = new MailAddress(Config.CompanyEmail, Config.CompanyName);
         string fromPassword = Config.CompanyEmailPassword;
-        const string subject = "New Order Request";
+        const string subject = "Նոր պատվեր";
         var body = $"{order.CustomerName}\n\n" +
                    $"{order.CustomerEmail}\n\n" +
+                   $"{order.CustomerPhone}\n\n" +
                    $"{order.CustomerAddress}\n\n" +
-                   $"Order Details:\n" +
-                   string.Join("\n", order.Items.Select(item => $"{item.Title} - {item.Quantity} x {item.Price:C}")) +
-                   $"\n\nTotal: {order.Items.Sum(item => item.Price * item.Quantity):C}";
+                   $"Պատվերի մանրամասները՝\n" +
+                   string.Join("\n", order.Items.Select(item => $"{item.Title} - {item.Quantity} x {item.Price}֏")) +
+                   $"\n\nԸնդհանուր: {order.Items.Sum(item => item.Price * item.Quantity)}֏";
 
         var smtp = new SmtpClient
         {

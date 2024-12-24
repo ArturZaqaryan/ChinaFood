@@ -17,27 +17,19 @@
             <nav class="header__menu">
                 <ul class="header__list">
                     <li>
-                        <a href="" class="header__link">Currency</a>
-                    </li>
-                    <li>
                         @await Html.PartialAsync("Forms/SelectLanguagePartial")
                     </li>
                     <li>
-                        <a href="" class="header__link">Register object</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Account" asp-action="Register" class="header__link">@SharedLocalizer["Register"]</a>
-                    </li>
-                    <li>
-                        <a asp-controller="Account" asp-action="Login" class="header__link">Login</a>
+                        <div class="nav__item nav__cart">
+                            <a href="/Cart/Cart" class="cart-icon">
+                                @SharedLocalizer["Cart"]<span class="cart-count">0</span>
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </nav>
-            <nav class="nav">
+            <nav class="nav" id="nav">
                 <div class="nav__row">
-                    <div class="nav__item nav__currency">
-                        <a href="" class="nav__link nav__link_white">AMD</a>
-                    </div>
                     <div class="nav__item nav__language">
                         @await Html.PartialAsync("Forms/SelectLanguagePartial")
                     </div>

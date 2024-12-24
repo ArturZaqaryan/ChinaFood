@@ -26,15 +26,15 @@ public class SearchController(DataManager dataManager) : Controller
             dishes = dishes.Where(d => d.Title.Contains(model.Destination, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
-        if (model.MinPrice.HasValue)
-        {
-            dishes = dishes.Where(d => d.Price >= model.MinPrice.Value).ToList();
-        }
+        //if (model.MinPrice.HasValue)
+        //{
+        //    dishes = dishes.Where(d => d.Price >= model.MinPrice.Value).ToList();
+        //}
 
-        if (model.MaxPrice.HasValue)
-        {
-            dishes = dishes.Where(d => d.Price <= model.MaxPrice.Value).ToList();
-        }
+        //if (model.MaxPrice.HasValue)
+        //{
+        //    dishes = dishes.Where(d => d.Price <= model.MaxPrice.Value).ToList();
+        //}
 
         if (model.DishType.HasValue)
         {

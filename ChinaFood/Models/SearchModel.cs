@@ -9,15 +9,15 @@ namespace ChinaFood.Models
         /// </summary>
         public string Destination { get; set; }
 
-        /// <summary>
-        /// Минимальная цена для фильтрации.
-        /// </summary>
-        public decimal? MinPrice { get; set; }
+        ///// <summary>
+        ///// Минимальная цена для фильтрации.
+        ///// </summary>
+        //public decimal? MinPrice { get; set; }
 
-        /// <summary>
-        /// Максимальная цена для фильтрации.
-        /// </summary>
-        public decimal? MaxPrice { get; set; }
+        ///// <summary>
+        ///// Максимальная цена для фильтрации.
+        ///// </summary>
+        //public decimal? MaxPrice { get; set; }
 
         /// <summary>
         /// Тип блюда (перечисление DishType).

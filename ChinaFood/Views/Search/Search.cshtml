@@ -14,26 +14,29 @@
             {
                 <article class="article">
                     <div class="article__title title">
-                        <h3>@{
-                                switch (dishPair.Key)
-                                {
-                                    case DishType.China:
-                                        @SharedLocalizer["ChineseDishes"]
-                                        break;
-                                    case DishType.Japan:
-                                        @SharedLocalizer["JapanesseDishes"]
-                                        break;
-                                    case DishType.Drink:
-                                        @SharedLocalizer["Drinks"]
-                                        break;
-                                }  
-                            }
+                        <h3>
+                            <a href="/Search/Search?destination=&dishType=@dishPair.Key&minPrice=&maxPrice=">
+                                    @{
+                                    switch (dishPair.Key)
+                                    {
+                                        case DishType.China:
+                                                @SharedLocalizer["ChineseDishes"]
+                                            break;
+                                        case DishType.Japan:
+                                            @SharedLocalizer["JapanesseDishes"]
+                                            break;
+                                        case DishType.Drink:
+                                            @SharedLocalizer["Drinks"]
+                                            break;
+                                    }  
+                                }
+                            </a>
                         </h3>
                     </div>
                     @foreach (var subCategoryPair in dishPair.Value)
                     {
                             <div class="article__title title_left">
-                            @subCategoryPair.Key.Title
+                            <a href="/Search/Search?destination=&dishType=@dishPair.Key&SubCategoryId=@subCategoryPair.Key.Id">@subCategoryPair.Key.Title</a>
                             </div>
                             <div class="article__row">
                             @foreach (var item in subCategoryPair.Value)

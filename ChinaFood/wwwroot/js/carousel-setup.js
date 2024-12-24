@@ -19,3 +19,13 @@ $(document).ready(function () {
         items: 2,
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const hint = document.querySelector('.carousel-hint');
+    const carousel = document.querySelector('#js-carousel-polaroid-5');
+
+    if (carousel && hint) {
+        carousel.addEventListener('mousedown', () => hint.style.display = 'none');
+        carousel.addEventListener('touchstart', () => hint.style.display = 'none');
+    }
+});
