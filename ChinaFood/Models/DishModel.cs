@@ -9,6 +9,7 @@ public class DishModel : BaseModel
     [Required]
     [DisplayName("Column")]
     public decimal Price { get; set; }
+    public int Discount { get; set; }
     public DishType DishType { get; set; }
     public Guid SubCategoryId { get; set; }
 }

@@ -215,4 +215,97 @@
   <data name="Drink" xml:space="preserve">
     <value>Напиток</value>
   </data>
+  <data name="SelectDishType" xml:space="preserve">
+    <value>Тип блюда</value>
+  </data>
+  <data name="Chinesse" xml:space="preserve">
+    <value>Китайский</value>
+  </data>
+  <data name="Japanesse" xml:space="preserve">
+    <value>Японский</value>
+  </data>
+  <data name="SubCategory" xml:space="preserve">
+    <value>Подкатегория</value>
+  </data>
+  <data name="SelectSubCategory" xml:space="preserve">
+    <value>Подкатегория</value>
+  </data>
+  <data name="Armenian" xml:space="preserve">
+    <value>Армянский</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Английский</value>
+  </data>
+  <data name="Russian" xml:space="preserve">
+    <value>Русский</value>
+  </data>
+  <data name="ViewDishInfo" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>Добавить в корзину</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Результаты поиска</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Цена</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Количество</value>
+  </data>
+  <data name="AddedOn" xml:space="preserve">
+    <value>Был добавлен в</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="YourCart" xml:space="preserve">
+    <value>Ваша корзина</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Блюдо</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Общий счет</value>
+  </data>
+  <data name="ProceedToCheckout" xml:space="preserve">
+    <value>Сделать заказ</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Эл. почта</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Номер телефона</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Адрес доставки</value>
+  </data>
+  <data name="SubmitOrder" xml:space="preserve">
+    <value>Оформить заказ</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Показать больше</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>Покозать меньше</value>
+  </data>
+  <data name="SwipeToBrowse" xml:space="preserve">
+    <value>Потяните вправо</value>
+  </data>
+  <data name="NewPrice" xml:space="preserve">
+    <value>Новая цена</value>
+  </data>
+  <data name="OldPrice" xml:space="preserve">
+    <value>Старая цена</value>
+  </data>
+  <data name="Cart" xml:space="preserve">
+    <value>Корзина</value>
+  </data>
 </root>

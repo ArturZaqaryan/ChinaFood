@@ -7,12 +7,15 @@
     <input type="hidden" name="productId" value="@Model.Id" />
     <input type="hidden" name="title" value="@Model.Title" />
     <input type="hidden" name="price" value="@Model.Price" />
+    <input type="hidden" name="discount" value="@Model.Discount" />
 
     <div class="form__row">
         <div class="form__item-column">
             <label for="count">@SharedLocalizer["DishType"]</label>
             <input id="count" name="quantity" type="number" class="form__number" min="1" value="1">
         </div>
-        <button class="submit add-to-cart">Add to Cart</button>
+        <button class="submit add-to-cart">
+            <i class="fas fa-shopping-cart"></i> <!-- Иконка корзины -->
+        </button>
     </div>
 </form>

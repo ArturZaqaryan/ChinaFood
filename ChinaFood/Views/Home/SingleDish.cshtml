@@ -1,4 +1,8 @@
-﻿@model DishModel
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<CommonResources> SharedLocalizer
+
+@model DishModel
 @{
     Layout = "Layouts/_LayoutSingleDish";
     ViewData["Title"] = Model.Title;
@@ -15,12 +19,24 @@
     }
 
     <div class="dish-info">
-        <h2 class="dish-price">Price: @Model.Price.ToString("C")</h2>
+        @if (Model.Discount == 0)
+        {
+            <h2 class="dish-price">@SharedLocalizer["Price"]: @Model.Price ֏</h2>
+        }
+        else
+        {
+            <h2 class="dish-price">@SharedLocalizer["OldPrice"]: <s>@Model.Price ֏</s></h2>
+            <h2 class="dish-price">
+                @SharedLocalizer["NewPrice"]: @{
+                    var newPrice = Model?.Price - (Model?.Price * Model.Discount / 100);
+                } @newPrice ֏
+            </h2>
+        }
         <p class="dish-subtitle"><strong>@Model.Subtitle</strong></p>
         <p class="dish-description">@Model.Text</p>
-        <p class="dish-type">Type: <span>@Model.DishType</span></p>
+        <p class="dish-type">@SharedLocalizer["Type"]: <span>@Model.DishType</span></p>
         <p class="dish-meta">
-            <small>Added on: @Model.DateAdded.ToString("dd MMMM yyyy")</small>
+            <small>@SharedLocalizer["AddedOn"]: @Model.DateAdded.ToString("dd MMMM yyyy")</small>
         </p>
     </div>
 
@@ -31,10 +47,10 @@
         <input type="hidden" name="price" value="@Model.Price" />
 
         <div class="form-group">
-            <label for="quantity">Quantity:</label>
+            <label for="quantity">@SharedLocalizer["Quantity"]:</label>
             <input type="number" name="quantity" id="count" class="form-control" min="1" value="1" />
         </div>
 
-        <button type="submit" class="submit add-to-cart">Add to Cart</button>
+        <button type="submit" class="submit add-to-cart">@SharedLocalizer["AddToCart"]</button>
     </form>
 </div>

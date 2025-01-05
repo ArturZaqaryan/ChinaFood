@@ -15,7 +15,7 @@ public class CartController(DataManager dataManager) : Controller
 {
     private readonly DataManager dataManager = dataManager;
     [HttpPost]
-    public IActionResult AddToCart(Guid productId, string title, decimal price, int quantity)
+    public IActionResult AddToCart(Guid productId, string title, decimal price, int discount, int quantity)
     {
         var cart = HttpContext.Session.Get<List<CartItem>>("Cart") ?? [];
 
@@ -26,7 +26,13 @@ public class CartController(DataManager dataManager) : Controller
         }
         else
         {
-            cart.Add(new CartItem { ProductId = productId, Title = title, Price = price, Quantity = quantity });
+            cart.Add(new CartItem 
+            { 
+                ProductId = productId, 
+                Title = title, 
+                Price = discount == 0 ? price : price - (price * discount / 100), 
+                Quantity = quantity 
+            });
         }
 
         HttpContext.Session.Set("Cart", cart);
@@ -181,7 +187,7 @@ public class CartController(DataManager dataManager) : Controller
     [HttpGet]
     public IActionResult GetCartItems()
     {
-        var cart = HttpContext.Session.Get<List<CartItem>>("Cart") ?? new List<CartItem>();
+        var cart = HttpContext.Session.Get<List<CartItem>>("Cart") ?? [];
 
         var cartViewModel = cart.Select(item => new
         {

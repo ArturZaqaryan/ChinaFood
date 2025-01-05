@@ -6,7 +6,8 @@
 
 @inject IViewLocalizer Localizer
 @inject IOptions<RequestLocalizationOptions> LocOptions
-@* @inject IHtmlLocalizer<CommonResources> SharedLocalizer *@
+@inject IHtmlLocalizer<CommonResources> SharedLocalizer
+
 @{ var requestCulture = Context.Features.Get<IRequestCultureFeature>();
     var cultureItems = LocOptions.Value.SupportedUICultures
         .Select(c => new SelectListItem { Value = c.Name, Text = c.DisplayName })
@@ -25,9 +26,9 @@
         <select name="culture"
                 onchange="this.form.submit();"
                 asp-for="@requestCulture.RequestCulture.UICulture.Name">
-            <option value="hy-AM">Armenian</option>
-            <option value="en-US">English</option>
-            <option value="ru-RU">Russian</option>
+            <option value="hy-AM">@SharedLocalizer["Armenian"]</option>
+            <option value="en-US">@SharedLocalizer["English"]</option>
+            <option value="ru-RU">@SharedLocalizer["Russian"]</option>
         </select>
     </form>
 </div>  

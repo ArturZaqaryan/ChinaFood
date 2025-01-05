@@ -28,6 +28,7 @@ public class EFDishesRepository(AppDbContext context) : IDishesRepository
                         DateAdded = dish.DateAdded,
                         Id = dish.Id,
                         Price = dish.Price,
+                        Discount = dish.Discount,
                         MetaDescription = dish.MetaDescription,
                         MetaKeywords = dish.MetaKeywords,
                         MetaTitle = dish.MetaTitle,
@@ -47,6 +48,7 @@ public class EFDishesRepository(AppDbContext context) : IDishesRepository
                         DateAdded = dish.DateAdded,
                         Id = dish.Id,
                         Price = dish.Price,
+                        Discount = dish.Discount,
                         MetaDescription = dish.MetaDescription,
                         MetaKeywords = dish.MetaKeywords,
                         MetaTitle = dish.MetaTitle,
@@ -62,6 +64,7 @@ public class EFDishesRepository(AppDbContext context) : IDishesRepository
                     {
                         Title = dish.TitleArm,
                         Price = dish.Price,
+                        Discount = dish.Discount,
                         Subtitle = dish.SubtitleArm,
                         Text = dish.TextArm,
                         DateAdded = dish.DateAdded,
@@ -92,6 +95,7 @@ public class EFDishesRepository(AppDbContext context) : IDishesRepository
                         DateAdded = dish.DateAdded,
                         Id = dish.Id,
                         Price = dish.Price,
+                        Discount = dish.Discount,
                         MetaDescription = dish.MetaDescription,
                         MetaKeywords = dish.MetaKeywords,
                         MetaTitle = dish.MetaTitle,
@@ -111,6 +115,7 @@ public class EFDishesRepository(AppDbContext context) : IDishesRepository
                         DateAdded = dish.DateAdded,
                         Id = dish.Id,
                         Price = dish.Price,
+                        Discount = dish.Discount,
                         MetaDescription = dish.MetaDescription,
                         MetaKeywords = dish.MetaKeywords,
                         MetaTitle = dish.MetaTitle,
@@ -126,6 +131,7 @@ public class EFDishesRepository(AppDbContext context) : IDishesRepository
                     {
                         Title = dish.TitleArm,
                         Price = dish.Price,
+                        Discount = dish.Discount,
                         Subtitle = dish.SubtitleArm,
                         Text = dish.TextArm,
                         DateAdded = dish.DateAdded,
@@ -158,6 +164,7 @@ public class EFDishesRepository(AppDbContext context) : IDishesRepository
             {
                 Id = dish.Id,
                 Price = dish.Price,
+                Discount = dish.Discount,
                 DateAdded = dish.DateAdded,
                 MetaDescription = dish.MetaDescription,
                 MetaKeywords = dish.MetaKeywords,
@@ -180,6 +187,7 @@ public class EFDishesRepository(AppDbContext context) : IDishesRepository
                         DateAdded = dish.DateAdded,
                         Id = dish.Id,
                         Price = dish.Price,
+                        Discount = dish.Discount,
                         MetaDescription = dish.MetaDescription,
                         MetaKeywords = dish.MetaKeywords,
                         MetaTitle = dish.MetaTitle,
@@ -194,6 +202,7 @@ public class EFDishesRepository(AppDbContext context) : IDishesRepository
             {
                 Id = dish.Id,
                 Price = dish.Price,
+                Discount = dish.Discount,
                 DateAdded = dish.DateAdded,
                 MetaDescription = dish.MetaDescription,
                 MetaKeywords = dish.MetaKeywords,
@@ -225,7 +234,7 @@ public class EFDishesRepository(AppDbContext context) : IDishesRepository
 
     public List<string> GetDataNames()
     {
-        var list = new List<string>() { "Title", "Subtitle", "Text", "Title image path", "Dish type", "Date added" };
+        var list = new List<string>() { "Անուն", "Կարճ նկարագիր", "Երկար նկարագիր", "Զեղչ", "Տիպ", "ավելացման ամսաթիվ" };
         return list;
     }
 
@@ -233,10 +242,10 @@ public class EFDishesRepository(AppDbContext context) : IDishesRepository
     {
         var list = new List<string>
         {
-            entity.TitleEn.ToString(),
-            entity.SubtitleEn?.ToString(),
-            entity.TextEn?.ToString(),
-            entity.TitleImagePath?.ToString(),
+            entity.TitleArm?.ToString(),
+            entity.SubtitleArm?.ToString(),
+            entity.TextArm?.ToString(),
+            entity.Discount.ToString(),
             entity.DishType.ToString(),
             entity.DateAdded.ToString()
         };

@@ -1,0 +1,75 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@inject IHtmlLocalizer<CommonResources> SharedLocalizer
+
+@model IEnumerable<DishModel>
+
+@{
+    var dishes = Model.ToList();
+}
+
+@for (int j = 0; j < dishes.Count; j += 6)
+{
+    var cssClass = j < 1 ? "visible" : "hidden";
+    var count = Math.Min(j + 6, dishes.Count);
+
+    <div class="article__row @cssClass" id="dishes-container">
+        @switch (count % 6)
+        {
+            case 0:
+                @for (int i = j; i < count; i++)
+                {
+                    if (i == 0 || i == 5)
+                    {
+                        @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", dishes[i])
+                    }
+                    else
+                    {
+                        @await Html.PartialAsync("PageBlocks/CardWithFormPartial", dishes[i])
+                    }
+                }
+                break;
+            case 1:
+                @await Html.PartialAsync("PageBlocks/CardWithFormPartial", dishes[j])
+                break;
+            case 2:
+                @for (int i = j; i < count; i++)
+                {
+                    @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", dishes[i])
+                }
+                break;
+            case 3:
+                @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", dishes[j])
+                @for (int i = j + 1; i < count; i++)
+                {
+                    @await Html.PartialAsync("PageBlocks/CardWithFormPartial", dishes[i])
+                }
+                break;
+            case 4:
+                @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", dishes[j])
+                @for (int i = j + 1; i < count; i++)
+                {
+                    @await Html.PartialAsync("PageBlocks/CardWithFormPartial", dishes[i])
+                }
+                break;
+            case 5:
+                @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", dishes[j])
+                @for (int i = j + 1; i < count - 2; i++)
+                {
+                    @await Html.PartialAsync("PageBlocks/CardWithFormPartial", dishes[i])
+                }
+                @for (int i = count - 2; i < count; i++)
+                {
+                    @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", dishes[i])
+                }
+                break;
+        }
+    </div>
+}
+
+@if (dishes.Count > 6)
+{
+    <div class="article__footer">
+        <button id="show-more" class="show-more">@SharedLocalizer["ShowMore"]</button>
+    </div>
+}

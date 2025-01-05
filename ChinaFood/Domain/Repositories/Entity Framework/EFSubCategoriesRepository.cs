@@ -208,7 +208,7 @@ public class EFSubCategoriesRepository(AppDbContext context) : ISubCategoriesRep
 
     public List<string> GetDataNames()
     {
-        var list = new List<string>() { "Title", "Subtitle", "Text", "Title image path", "Dish type", "Date added" };
+        var list = new List<string>() { "Անուն", "Կարճ նկարագիր", "Երկար նկարագիր", "Նկար", "Տիպ", "ավելացման ամսաթիվ" };
         return list;
     }
 

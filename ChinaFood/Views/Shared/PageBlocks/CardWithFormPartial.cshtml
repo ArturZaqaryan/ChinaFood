@@ -13,8 +13,20 @@
             <p>@Model?.Title</p>
             <p>@Model?.Subtitle</p>
         </div>
-        <div class="card__price">
-            @Model?.Price.ToString("C")
-        </div>
+        @if (Model.Discount == 0)
+        {
+            <div class="card__price">
+                @Model?.Price ֏
+            </div>
+        }
+        else
+        {
+            <div class="card__price">
+                <s>@Model?.Price ֏</s>
+                @{
+                    var newPrice = Model?.Price - (Model?.Price * Model.Discount / 100);
+                } @newPrice ֏
+            </div>
+        }
     </div>
 </div>

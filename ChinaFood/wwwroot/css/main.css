@@ -578,6 +578,8 @@ button {
 }
 
 .card__price {
+    display: flex;
+    flex-direction: column;
     margin: auto 10px 10px 10px;
     background-color: rgba(0, 0, 0, 0.5);
     /*backdrop-filter: blur(100px);*/ /* Размытие на 10 пикселей */

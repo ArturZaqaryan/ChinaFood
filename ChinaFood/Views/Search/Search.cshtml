@@ -8,7 +8,7 @@
 }
 <div class="content">
     <div class="container search-results">
-    <h2 class="title">Search Results</h2>
+    <h2 class="title">@SharedLocalizer["SearchResults"]</h2>
     <div class="content__column">
             @foreach (var dishPair in Model)
             {
@@ -23,7 +23,7 @@
                                                 @SharedLocalizer["ChineseDishes"]
                                             break;
                                         case DishType.Japan:
-                                            @SharedLocalizer["JapanesseDishes"]
+                                            @SharedLocalizer["JapaneseDishes"]
                                             break;
                                         case DishType.Drink:
                                             @SharedLocalizer["Drinks"]
@@ -33,17 +33,13 @@
                             </a>
                         </h3>
                     </div>
+
                     @foreach (var subCategoryPair in dishPair.Value)
                     {
-                            <div class="article__title title_left">
+                        <div class="article__title title_left">
                             <a href="/Search/Search?destination=&dishType=@dishPair.Key&SubCategoryId=@subCategoryPair.Key.Id">@subCategoryPair.Key.Title</a>
-                            </div>
-                            <div class="article__row">
-                            @foreach (var item in subCategoryPair.Value)
-                            {
-                                @await Html.PartialAsync("PageBlocks/CardWithFormBigPartial", item)
-                            }
-                            </div>
+                        </div>
+                        @await Html.PartialAsync("PageBlocks/CardBlockPartial", subCategoryPair.Value)
                     }
                 </article>
             }

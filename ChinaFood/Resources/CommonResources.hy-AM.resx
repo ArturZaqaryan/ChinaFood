@@ -213,4 +213,97 @@
   <data name="Drink" xml:space="preserve">
     <value>Ըմպելիք</value>
   </data>
+  <data name="SelectDishType" xml:space="preserve">
+    <value>Ուտեստի տեսակ</value>
+  </data>
+  <data name="Chinesse" xml:space="preserve">
+    <value>Չինական</value>
+  </data>
+  <data name="Japanesse" xml:space="preserve">
+    <value>Ճապոնական</value>
+  </data>
+  <data name="SubCategory" xml:space="preserve">
+    <value>Ենթատեսակ</value>
+  </data>
+  <data name="SelectSubCategory" xml:space="preserve">
+    <value>Ենթատեսակ</value>
+  </data>
+  <data name="Armenian" xml:space="preserve">
+    <value>Հայերեն</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Անգլերեն</value>
+  </data>
+  <data name="Russian" xml:space="preserve">
+    <value>Ռուսերեն</value>
+  </data>
+  <data name="ViewDishInfo" xml:space="preserve">
+    <value>Ինֆորմացիա</value>
+  </data>
+  <data name="AddToCart" xml:space="preserve">
+    <value>Ավելացնել զամբյուղ</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Որոնման արդյունքներ</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Գին</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Քանակ</value>
+  </data>
+  <data name="AddedOn" xml:space="preserve">
+    <value>Ավելացվել է</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Տեսակ</value>
+  </data>
+  <data name="YourCart" xml:space="preserve">
+    <value>Ձեր զամբյուղը</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Ուտեստ</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Գործողություններ</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Ընդհանուր</value>
+  </data>
+  <data name="ProceedToCheckout" xml:space="preserve">
+    <value>Կատարել պատվեր</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Անուն</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Էլ․ Հասցե</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Հեռախոսահամար</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Առաքման Հասցե</value>
+  </data>
+  <data name="SubmitOrder" xml:space="preserve">
+    <value>Հաստատել</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Ցույց տալ ավելին</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>Փակել</value>
+  </data>
+  <data name="SwipeToBrowse" xml:space="preserve">
+    <value>Թերթեք աջ</value>
+  </data>
+  <data name="NewPrice" xml:space="preserve">
+    <value>Նոր գին</value>
+  </data>
+  <data name="OldPrice" xml:space="preserve">
+    <value>Հին գին</value>
+  </data>
+  <data name="Cart" xml:space="preserve">
+    <value>Զամբյուղ</value>
+  </data>
 </root>
